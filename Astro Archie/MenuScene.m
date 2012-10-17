@@ -18,6 +18,7 @@
   CCLayer *layer = [MenuScene node];
   [scene addChild:layer];
   return scene;
+  
 }
 
 -(id)init
