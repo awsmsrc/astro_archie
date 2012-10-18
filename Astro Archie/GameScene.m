@@ -22,13 +22,28 @@
 -(id)init
 {
   if((self = [super init])){
-    self.isTouchEnabled = YES;
-    self.isAccelerometerEnabled = YES;
     screenSize = [[CCDirector sharedDirector] winSize];
     [self setUpSprites];
-    [self scheduleUpdate];
+    [self takeOff];
   }
   return self;
+}
+
+-(void)takeOff
+{
+  NSLog(@"boo");
+  CCSequence *seq = [CCSequence actions:
+                    [CCDelayTime actionWithDuration:0.8],
+                    [CCMoveTo actionWithDuration:0.35 position:ccp(player.position.x, player.position.y + screenSize.height/5)],
+                    [CCCallFunc actionWithTarget:self selector:@selector(takeOffComplete)],
+                    nil];
+  [player runAction:seq];
+}
+
+-(void)takeOffComplete{
+  self.isTouchEnabled = YES;
+  self.isAccelerometerEnabled = YES;
+  [self scheduleUpdate];
 }
 
 -(void)setUpSprites
