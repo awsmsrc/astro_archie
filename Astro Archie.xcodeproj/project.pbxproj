@@ -11,6 +11,8 @@
 		A314E8A2162EF7310060AD87 /* play_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8A0162EF7310060AD87 /* play_on.png */; };
 		A314E8AF162F010E0060AD87 /* archie.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8AE162F010E0060AD87 /* archie.png */; };
 		A314E8B1162F01240060AD87 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8B0162F01240060AD87 /* bg.png */; };
+		A314E8B4163062BF0060AD87 /* bg-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8B2163062BF0060AD87 /* bg-ipad.png */; };
+		A314E8B5163062BF0060AD87 /* archie-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8B3163062BF0060AD87 /* archie-ipad.png */; };
 		A33C6681162EEB650084BC45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6680162EEB650084BC45 /* QuartzCore.framework */; };
 		A33C6683162EEB650084BC45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6682162EEB650084BC45 /* OpenGLES.framework */; };
 		A33C6685162EEB650084BC45 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6684162EEB650084BC45 /* OpenAL.framework */; };
@@ -136,6 +138,8 @@
 		A314E8A0162EF7310060AD87 /* play_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_on.png; path = Resources/play_on.png; sourceTree = "<group>"; };
 		A314E8AE162F010E0060AD87 /* archie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = archie.png; path = Resources/archie.png; sourceTree = "<group>"; };
 		A314E8B0162F01240060AD87 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = Resources/bg.png; sourceTree = "<group>"; };
+		A314E8B2163062BF0060AD87 /* bg-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-ipad.png"; path = "Resources/bg-ipad.png"; sourceTree = "<group>"; };
+		A314E8B3163062BF0060AD87 /* archie-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archie-ipad.png"; path = "Resources/archie-ipad.png"; sourceTree = "<group>"; };
 		A33C667C162EEB650084BC45 /* Astro Archie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astro Archie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33C6680162EEB650084BC45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A33C6682162EEB650084BC45 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -446,6 +450,8 @@
 		A33C6691162EEB650084BC45 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A314E8B2163062BF0060AD87 /* bg-ipad.png */,
+				A314E8B3163062BF0060AD87 /* archie-ipad.png */,
 				A314E8B0162F01240060AD87 /* bg.png */,
 				A314E8AE162F010E0060AD87 /* archie.png */,
 				A33C6692162EEB650084BC45 /* Default.png */,
@@ -872,6 +878,8 @@
 				A314E8A2162EF7310060AD87 /* play_on.png in Resources */,
 				A314E8AF162F010E0060AD87 /* archie.png in Resources */,
 				A314E8B1162F01240060AD87 /* bg.png in Resources */,
+				A314E8B4163062BF0060AD87 /* bg-ipad.png in Resources */,
+				A314E8B5163062BF0060AD87 /* archie-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,8 +1043,10 @@
 				GCC_PREFIX_HEADER = "Astro Archie/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "Astro Archie/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1050,8 +1060,10 @@
 				GCC_PREFIX_HEADER = "Astro Archie/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "Astro Archie/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

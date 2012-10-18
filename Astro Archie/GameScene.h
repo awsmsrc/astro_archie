@@ -11,6 +11,8 @@
 
 @interface GameScene : CCLayer {
   CCSprite *player;
+  CGPoint playerVelocity;
+  CGSize screenSize;
 }
 
 +(id)scene;

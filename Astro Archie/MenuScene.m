@@ -24,7 +24,9 @@
 -(id)init
 {
   if((self = [super init])){
-    CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:@"play_off.png" selectedImage:@"play_on.png" target:self selector:@selector(startGame)];
+    CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:@"play_off.png" selectedImage:@"play_on.png"
+                                                           target:self
+                                                         selector:@selector(startGame)];
     CCMenu *menu = [CCMenu menuWithItems:playButton, nil];
     [self addChild:menu];
   }
