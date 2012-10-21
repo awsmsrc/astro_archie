@@ -7,6 +7,7 @@
 //
 
 #import "MenuScene.h"
+#include "SimpleAudioEngine.h"
 #import "GameScene.h"
 
 
@@ -29,12 +30,14 @@
                                                          selector:@selector(startGame)];
     CCMenu *menu = [CCMenu menuWithItems:playButton, nil];
     [self addChild:menu];
+    [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"luke loop 1.mp3" loop:YES];
   }
   return self;
 }
 
 -(void)startGame
 {
+   [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
   GameScene * gs = [GameScene node];
   [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gs]];
 }
