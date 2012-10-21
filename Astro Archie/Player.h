@@ -15,4 +15,5 @@
 }
 -(id)initWithParentNode:(CCNode *)parentNode;
 -(void)takeOff;
+-(void)steerArchie;
 @end
