@@ -19,7 +19,6 @@
   CCLayer *layer = [MenuScene node];
   [scene addChild:layer];
   return scene;
-  
 }
 
 -(id)init
@@ -37,14 +36,9 @@
 
 -(void)startGame
 {
-   [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
+  [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
   GameScene * gs = [GameScene node];
   [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gs]];
-}
-
--(void)dealloc
-{
-  [super dealloc];
 }
 
 @end

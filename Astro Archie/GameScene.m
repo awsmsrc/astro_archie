@@ -8,12 +8,11 @@
 
 #import "GameScene.h"
 #import "SimpleAudioEngine.h"
-#import "MenuScene.h"
-#import "CoinManager.h"
 
 
 
-@implementation GameScene 
+@implementation GameScene
+@synthesize coinManager = _coinManager;
 
 +(id)scene
 {
@@ -69,7 +68,7 @@
   bg.anchorPoint = ccp(0,0);
   bg.position = bg.anchorPoint;
   [gameLayer addChild:bg z:-1];
-  CoinManager *coin = [[CoinManager alloc] initWithParentNode:bg];
+  [self setCoinManager:[[CoinManager alloc] initWithParentNode:gameLayer]];
 }
 
 -(void)addPlayer
@@ -153,6 +152,7 @@
 -(void)update:(ccTime)delta
 {
   [self increaseAltitude];
+  [[self coinManager] handleCollisionsWith:player];
 }
 
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
@@ -163,10 +163,13 @@
 -(void)increaseAltitude
 {
   bg.position = ccp(bg.position.x, bg.position.y - 2);
+  [[self coinManager] animateCoins:2];
 }
 
 -(void)dealloc
 {
+  [self removeChild:player cleanup:YES];
+  player = nil;
   [super dealloc];
 }
 

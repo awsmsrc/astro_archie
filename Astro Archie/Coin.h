@@ -10,9 +10,10 @@
 #import "cocos2d.h"
 
 @interface Coin : CCNode {
-  CCSprite *_sprite;
 }
+@property(nonatomic,retain)CCSprite *sprite;
 
 -(id)initWithParentNode:(CCNode *)parentNode;
+-(CGRect)spriteBox;
 
 @end

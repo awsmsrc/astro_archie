@@ -10,10 +10,11 @@
 #import "cocos2d.h"
 
 @interface Player : CCNode {
-  CCSprite *_sprite;
   CGPoint _velocity;
 }
+@property(nonatomic, retain)CCSprite *sprite;
 -(id)initWithParentNode:(CCNode *)parentNode;
 -(void)takeOff;
 -(void)steerArchie;
+-(CGRect)spriteBox;
 @end

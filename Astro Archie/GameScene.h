@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "MenuScene.h"
 #import "Player.h"
+#import "CoinManager.h"
 
 @interface GameScene : CCLayer {
   CCLayer *gameLayer;
@@ -23,9 +25,12 @@
   Player *player;
 }
 
+@property(nonatomic, retain)CoinManager *coinManager;
+
 +(id)scene;
 -(void)beginGameplay;
 -(void)setUpScene;
+-(void)increaseAltitude;
 -(void)startScoreTimer;
 
 @end

@@ -12,15 +12,17 @@
 
 @implementation Player
 
+@synthesize sprite = _sprite;
+
 -(id)initWithParentNode:(CCNode *)parentNode
 {
   if(self = [super init]){
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    _sprite = [CCSprite spriteWithFile:@"archie.png"];
+    [self setSprite:[CCSprite spriteWithFile:@"archie.png"]];
     float imageHeight = [_sprite texture].contentSize.height;
-    _sprite.position = CGPointMake(screenSize.width/2, imageHeight/2);
+    [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
     [parentNode addChild:self];
-    [self addChild:_sprite z:0 tag:1];
+    [self addChild:[self sprite] z:0 tag:1];
   }
   return self;
 }
@@ -80,12 +82,20 @@
   _sprite.position = pos;
 }
 
+-(CGRect)spriteBox
+{
+  CGRect rect = CGRectMake(self.sprite.position.x - [self.sprite texture].contentSize.width * self.sprite.anchorPoint.x,
+                self.sprite.position.y - [self.sprite texture].contentSize.height * self.sprite.anchorPoint.y,
+                [self.sprite texture].contentSize.width, [self.sprite texture].contentSize.height);
+  return rect;
+}
+
 
 -(void)dealloc
 {
   [super dealloc];
-  [_sprite removeFromParentAndCleanup:YES];
-  _sprite = nil;
+  [self.sprite release];
+  [self.sprite removeFromParentAndCleanup:YES];
 }
 
 @end

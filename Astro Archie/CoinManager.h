@@ -11,11 +11,12 @@
 #import "Player.h"
 
 @interface CoinManager : CCNode {
-  CCArray *visibleCoins;
-  CCArray *queuedCoins;
 }
 
+@property(nonatomic,retain)NSMutableArray *visibleCoins;
+
 -(id)initWithParentNode:(CCNode *)parentNode;
--(id)handleCollisionsWith:(Player *)player;
+-(void)handleCollisionsWith:(Player *)player;
+-(void)animateCoins:(int)distance;
 
 @end
