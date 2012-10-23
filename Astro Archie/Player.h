@@ -11,10 +11,14 @@
 
 @interface Player : CCNode {
   CGPoint _velocity;
+  int _score;
 }
 @property(nonatomic, retain)CCSprite *sprite;
 -(id)initWithParentNode:(CCNode *)parentNode;
 -(void)takeOff;
+-(void)didCollectCoin;
 -(void)steerArchie;
+-(void)incrementScore;
+-(int)score;
 -(CGRect)spriteBox;
 @end

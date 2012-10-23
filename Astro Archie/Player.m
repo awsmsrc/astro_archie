@@ -32,7 +32,7 @@
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
   CCSequence *seq = [CCSequence actions:
                     [CCDelayTime actionWithDuration:1.2],
-                    [CCCallFunc actionWithTarget:self selector:@selector(takeOffSFX)],
+                    [CCCallFunc actionWithTarget:self selector:@selector(takeOffDidBegin)],
                     [CCMoveTo actionWithDuration:0.35 position:ccp(_sprite.position.x, _sprite.position.y + screenSize.height/5)],
                     [CCCallFunc actionWithTarget:self.parent.parent selector:@selector(beginGameplay)],
                     [CCCallFunc actionWithTarget:self selector:@selector(scheduleUpdate)],
@@ -40,8 +40,24 @@
   [_sprite runAction:seq];
 }
 
--(void)takeOffSFX
+-(void)didCollectCoin
 {
+  _score = _score +100;
+}
+
+-(void)incrementScore
+{
+  _score = _score + 1;
+}
+
+-(int)score
+{
+  return _score;
+}
+
+-(void)takeOffDidBegin
+{
+  [self schedule:@selector(incrementScore) interval:0.05];
   [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion with Metal Debris.wav"];
 }
 

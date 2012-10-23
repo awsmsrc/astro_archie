@@ -17,12 +17,12 @@
   CCLayer *hudLayer;
   CGSize screenSize;
   CCLabelTTF *scoreLabel;
-  int score;
   CCSprite *bg;
   BOOL _pauseScreenUp;
   CCMenu *_pauseScreenMenu;
   CCLayer *pauseLayer;
   Player *player;
+  CCProgressTimer* fuel;
 }
 
 @property(nonatomic, retain)CoinManager *coinManager;

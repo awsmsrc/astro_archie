@@ -15,11 +15,17 @@
 
 -(id)initWithParentNode:(CCNode *)parentNode{
   if((self = [super init])){
-    _sprite = [CCSprite spriteWithFile:@"coin.png"];
-    _sprite.position = ccp(160,300);
-    [parentNode addChild:_sprite];
+    [self setSprite:[CCSprite spriteWithFile:@"coin.png"]];
+    [self sprite].position = ccp(160,300);
+    [parentNode  addChild:self];
+    [self addChild:_sprite];
   }
   return self;
+}
+
++(id)coinWithParentNode:(id)parentNode
+{
+  return [[[Coin alloc] initWithParentNode:parentNode] autorelease];
 }
 
 -(CGRect)spriteBox

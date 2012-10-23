@@ -40,19 +40,7 @@
   [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"luke loop 3.mp3" loop:YES];
   self.isTouchEnabled = YES;
   self.isAccelerometerEnabled = YES;
-  [self startScoreTimer];
   [self scheduleUpdate];
-}
-
--(void)startScoreTimer
-{
-  [self schedule:@selector(incrementScore) interval:0.05];
-}
-
--(void)incrementScore
-{
-  score++;
-  [scoreLabel setString:[NSString stringWithFormat:@"%i", score]];
 }
 
 -(void)setUpScene
@@ -78,15 +66,18 @@
 
 -(void)addHUD
 {
+  //TODO create a custom HUDLayer class
+  //HUD bg
   CCSprite *hud = [CCSprite spriteWithFile:@"HUD.png"];
   hud.anchorPoint = ccp(0, 0);
   hud.position = ccp(0, screenSize.height - [hud texture].contentSize.height);
   [hudLayer addChild:hud z:0];
   
+  
+  //pause menu
   CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause_pushed.png"
                                                          target:self
                                                        selector:@selector(pauseGame)];
-  
   CCMenu *menu = [CCMenu menuWithItems:pauseButton, nil];
   menu.position = ccp(22, screenSize.height - 25);
   [hudLayer addChild:menu z:1];
@@ -95,20 +86,37 @@
   boost.position = ccp(screenSize.width - 30, 30);
   [hudLayer addChild:boost];
 
+  
+  //score label
   scoreLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:18];
   float leftOffset = screenSize.width - screenSize.width / 25;
   float topOffset = screenSize.height - screenSize.height/ 30;
   scoreLabel.position = ccp(leftOffset, topOffset);
   scoreLabel.anchorPoint = CGPointMake(1.0f, 1.0f);
   [hudLayer addChild:scoreLabel z:999];
+  
+  //fuel guage
+  //initialize progress bar
+  fuel = [CCProgressTimer progressWithFile:@"fuel.png"];
+  
+  //set the progress bar type to horizontal from left to right
+  fuel.type = kCCProgressTimerTypeHorizontalBarLR;
+  
+  //initialize the progress bar to zero
+  fuel.percentage = 100;
+  
+  //add the CCProgressTimer to our layer and set its position
+  [hudLayer addChild:fuel z:1 tag:20];
+  [fuel setAnchorPoint:ccp(0,0)];
+  [fuel setPosition:ccp(60, screenSize.height - 40)];
+
 }
 
 -(void)pauseGame
 {
-  if(_pauseScreenUp == NO)
-  {
+  if(_pauseScreenUp == NO){
+    [self buttonPushed];
     _pauseScreenUp= YES;
-    //if you have music uncomment the line bellow
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     [[CCDirector sharedDirector] pause];
     pauseLayer = [CCLayerColor layerWithColor: ccc4(80, 80, 80, 160) width: screenSize.width height: screenSize.height];
@@ -132,7 +140,8 @@
 }
 
 -(void)ResumeButtonTapped:(id)sender{
-    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+  [self buttonPushed];
+  [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
   [hudLayer removeChild:_pauseScreenMenu cleanup:YES];
   [hudLayer removeChild:pauseLayer cleanup:YES];
   [[CCDirector sharedDirector] resume];
@@ -140,6 +149,7 @@
 }
 
 -(void)QuitButtonTapped:(id)sender{
+  [self buttonPushed];
    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
   [hudLayer removeChild:_pauseScreenMenu cleanup:YES];
   [hudLayer removeChild:pauseLayer cleanup:YES];
@@ -153,6 +163,7 @@
 {
   [self increaseAltitude];
   [[self coinManager] handleCollisionsWith:player];
+  [scoreLabel setString:[NSString stringWithFormat:@"%i", [player score]]];
 }
 
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
@@ -160,9 +171,15 @@
   [player applyAcceleration:acceleration];
 }
 
+-(void)buttonPushed
+{
+  [[SimpleAudioEngine sharedEngine] playEffect:@"button_pushed.wav"];
+}
+
 -(void)increaseAltitude
 {
   bg.position = ccp(bg.position.x, bg.position.y - 2);
+  fuel.percentage = fuel.percentage - 0.05f;
   [[self coinManager] animateCoins:2];
 }
 

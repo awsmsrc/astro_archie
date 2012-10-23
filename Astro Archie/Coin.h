@@ -13,6 +13,7 @@
 }
 @property(nonatomic,retain)CCSprite *sprite;
 
++(Coin *)coinWithParentNode:(id)parentNode;
 -(id)initWithParentNode:(CCNode *)parentNode;
 -(CGRect)spriteBox;
 

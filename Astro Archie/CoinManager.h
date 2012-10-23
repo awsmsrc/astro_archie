@@ -14,8 +14,9 @@
 }
 
 @property(nonatomic,retain)NSMutableArray *visibleCoins;
+@property(nonatomic,retain)NSMutableArray *hiddenCoins;
 
--(id)initWithParentNode:(CCNode *)parentNode;
+-(id)initWithParentNode:(id)parentNode;
 -(void)handleCollisionsWith:(Player *)player;
 -(void)animateCoins:(int)distance;
 

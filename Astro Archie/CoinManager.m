@@ -13,13 +13,18 @@
 @implementation CoinManager
 
 @synthesize visibleCoins = _visibleCoins;
+@synthesize hiddenCoins = _hiddenCoins;
 
--(id)initWithParentNode:(CCNode *)parentNode{
+-(id)initWithParentNode:(id)parentNode{
   if(self = [super init]){
     [parentNode addChild:self];
-    Coin *coin = [[Coin alloc] initWithParentNode:parentNode];
-    [[self visibleCoins] addObject:coin];
-    [self scheduleUpdate];
+    for(int i=0; i < 100; i++){
+      Coin *coin = [[Coin alloc] initWithParentNode:parentNode];
+      int x = arc4random()%440 + 20;
+      int y = (arc4random()%100 + 50) + (i * 70);
+      [coin sprite].position = ccp(x,y);
+      [[self visibleCoins] addObject:coin];
+    }
   }
   return self;
 }
@@ -32,10 +37,14 @@
   return _visibleCoins;
 }
 
--(void)update:(ccTime)delta
+-(NSMutableArray *)hiddenCoins
 {
-  //no op
+  if(!_hiddenCoins){
+    _hiddenCoins  = [[NSMutableArray alloc] init];
+  }
+  return _hiddenCoins;
 }
+
 
 -(void)animateCoins:(int)distance
 {
@@ -46,14 +55,21 @@
 
 -(void)handleCollisionsWith:(Player *)player
 {
-  for(Coin *coin in [self visibleCoins]){
-    if(CGRectIntersectsRect([player spriteBox], [coin spriteBox])){
+  NSMutableArray *tempArray = [[[NSMutableArray alloc] init] autorelease];
+  for(int i=0; i < [[self visibleCoins] count]; i++){
+    if(CGRectIntersectsRect([player spriteBox], [[[self visibleCoins] objectAtIndex:i] spriteBox])){
       NSLog(@"collision");
-      coin.sprite.visible = NO;
-      [coin.sprite.parent removeChild:coin cleanup:YES];
-      [[self visibleCoins] removeObject:coin];
+      [player didCollectCoin];
       [[SimpleAudioEngine sharedEngine] playEffect:@"coin_collect.mp3"];
+      [[self hiddenCoins] addObject:[[self visibleCoins] objectAtIndex:i]];
+      NSNumber *num = [NSNumber numberWithInt:i];
+      [tempArray addObject:num];
     }
+  }
+  for(int i=0; i < [tempArray count]; i++){
+    Coin *coin =[[self visibleCoins] objectAtIndex:(NSNumber *)[[tempArray objectAtIndex:i] intValue]];
+    [coin removeFromParentAndCleanup:NO];
+    [[self visibleCoins] removeObjectAtIndex:[(NSNumber *)[tempArray objectAtIndex:i] intValue]];
   }
 }
 

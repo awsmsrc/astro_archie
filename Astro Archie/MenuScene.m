@@ -36,6 +36,7 @@
 
 -(void)startGame
 {
+  [[SimpleAudioEngine sharedEngine] playEffect:@"button_pushed.wav"];
   [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
   GameScene * gs = [GameScene node];
   [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gs]];

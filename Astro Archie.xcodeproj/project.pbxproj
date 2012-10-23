@@ -155,6 +155,8 @@
 		A3E20164163455BB00151E0D /* CoinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E20163163455BB00151E0D /* CoinManager.m */; };
 		A3E201661634584A00151E0D /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E201651634584A00151E0D /* coin.png */; };
 		A3E20168163468A900151E0D /* coin_collect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3E20167163468A900151E0D /* coin_collect.mp3 */; };
+		A3FCE879163689C500B24844 /* button_pushed.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE878163689C500B24844 /* button_pushed.wav */; };
+		A3FCE87F1636F82C00B24844 /* fuel.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE87E1636F82C00B24844 /* fuel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -433,6 +435,8 @@
 		A3E20163163455BB00151E0D /* CoinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinManager.m; path = "Astro Archie/CoinManager.m"; sourceTree = "<group>"; };
 		A3E201651634584A00151E0D /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Resources/coin.png; sourceTree = "<group>"; };
 		A3E20167163468A900151E0D /* coin_collect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin_collect.mp3; sourceTree = "<group>"; };
+		A3FCE878163689C500B24844 /* button_pushed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_pushed.wav; sourceTree = "<group>"; };
+		A3FCE87E1636F82C00B24844 /* fuel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuel.png; path = Resources/fuel.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -889,6 +893,7 @@
 		A3CEA11E1632FD85000BFA37 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A3FCE87E1636F82C00B24844 /* fuel.png */,
 				A3CEA13D16331AB8000BFA37 /* pause_pushed.png */,
 				A3CEA14316332B4F000BFA37 /* quit_pushed.png */,
 				A3CEA14416332B4F000BFA37 /* quit.png */,
@@ -953,6 +958,7 @@
 		A3CEA1231632FE13000BFA37 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				A3FCE878163689C500B24844 /* button_pushed.wav */,
 				A3E20167163468A900151E0D /* coin_collect.mp3 */,
 				A3CEA1361632FF4C000BFA37 /* Comical Metal Gong.wav */,
 				A3CEA1321632FEEA000BFA37 /* Explosion with Metal Debris.wav */,
@@ -1053,6 +1059,8 @@
 				A3CEA14A16332B4F000BFA37 /* resume.png in Resources */,
 				A3E201661634584A00151E0D /* coin.png in Resources */,
 				A3E20168163468A900151E0D /* coin_collect.mp3 in Resources */,
+				A3FCE879163689C500B24844 /* button_pushed.wav in Resources */,
+				A3FCE87F1636F82C00B24844 /* fuel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
