@@ -8,6 +8,8 @@
 
 #import "Player.h"
 #import "SimpleAudioEngine.h" 
+#import "Fuel.h"
+#import "Coin.h"
 
 
 @implementation Player
@@ -18,6 +20,7 @@
 {
   if(self = [super init]){
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    _fuel = 100;
     [self setSprite:[CCSprite spriteWithFile:@"archie.png"]];
     float imageHeight = [_sprite texture].contentSize.height;
     [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
@@ -40,14 +43,43 @@
   [_sprite runAction:seq];
 }
 
+-(void)didCollideWithObject:(id)object
+{
+  if([object isKindOfClass:[Coin class]]){
+    [self didCollectCoin];
+  }else if([object isKindOfClass:[Fuel class]])
+  {
+    [self didCollectFuel];
+  }
+}
+
 -(void)didCollectCoin
 {
   _score = _score +100;
 }
 
+-(void)didCollectFuel
+{
+  if(_fuel >= 70){
+    _fuel = 100;
+  }else{
+    _fuel = _fuel + 30;
+  }
+}
+
 -(void)incrementScore
 {
   _score = _score + 1;
+}
+
+-(float)fuel
+{
+  return _fuel;
+}
+
+-(void)decrementFuel
+{
+  _fuel = _fuel - 0.05f;
 }
 
 -(int)score

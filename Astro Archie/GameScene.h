@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "MenuScene.h"
 #import "Player.h"
-#import "CoinManager.h"
+#import "CollectablesManager.h"
 
 @interface GameScene : CCLayer {
   CCLayer *gameLayer;
@@ -22,14 +22,15 @@
   CCMenu *_pauseScreenMenu;
   CCLayer *pauseLayer;
   Player *player;
-  CCProgressTimer* fuel;
+  CCProgressTimer* fuelGuage;
 }
 
-@property(nonatomic, retain)CoinManager *coinManager;
+@property(nonatomic, retain)CollectablesManager *collectableManager;
 
 +(id)scene;
 -(void)beginGameplay;
 -(void)setUpScene;
+-(void)gameResumed;
 -(void)increaseAltitude;
 -(void)startScoreTimer;
 

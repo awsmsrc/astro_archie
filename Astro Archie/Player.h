@@ -12,13 +12,16 @@
 @interface Player : CCNode {
   CGPoint _velocity;
   int _score;
+  float _fuel;
 }
 @property(nonatomic, retain)CCSprite *sprite;
 -(id)initWithParentNode:(CCNode *)parentNode;
 -(void)takeOff;
--(void)didCollectCoin;
+-(void)didCollideWithObject:(id)object;
 -(void)steerArchie;
 -(void)incrementScore;
 -(int)score;
+-(void)decrementFuel;
+-(float)fuel;
 -(CGRect)spriteBox;
 @end

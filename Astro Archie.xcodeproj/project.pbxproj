@@ -133,7 +133,7 @@
 		A33C6803162EF35E0084BC45 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A33C6802162EF35E0084BC45 /* GameScene.m */; };
 		A3CEA1191632FA80000BFA37 /* bg_1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1171632FA80000BFA37 /* bg_1_2.png */; };
 		A3CEA11A1632FA80000BFA37 /* bg_1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1181632FA80000BFA37 /* bg_1_1.png */; };
-		A3CEA12B1632FE35000BFA37 /* luke bad guy loop-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1241632FE35000BFA37 /* luke bad guy loop-1.mp3 */; };
+		A3CEA12B1632FE35000BFA37 /* evil_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1241632FE35000BFA37 /* evil_music.mp3 */; };
 		A3CEA12C1632FE35000BFA37 /* luke loop 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1251632FE35000BFA37 /* luke loop 1.mp3 */; };
 		A3CEA12D1632FE35000BFA37 /* luke loop 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1261632FE35000BFA37 /* luke loop 2.mp3 */; };
 		A3CEA12E1632FE35000BFA37 /* luke loop 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1271632FE35000BFA37 /* luke loop 3.mp3 */; };
@@ -152,11 +152,16 @@
 		A3CEA14916332B4F000BFA37 /* resume_pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14516332B4F000BFA37 /* resume_pushed.png */; };
 		A3CEA14A16332B4F000BFA37 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14616332B4F000BFA37 /* resume.png */; };
 		A3E20160163407CA00151E0D /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E2015F163407CA00151E0D /* Coin.m */; };
-		A3E20164163455BB00151E0D /* CoinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E20163163455BB00151E0D /* CoinManager.m */; };
+		A3E20164163455BB00151E0D /* CollectablesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E20163163455BB00151E0D /* CollectablesManager.m */; };
 		A3E201661634584A00151E0D /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E201651634584A00151E0D /* coin.png */; };
 		A3E20168163468A900151E0D /* coin_collect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3E20167163468A900151E0D /* coin_collect.mp3 */; };
 		A3FCE879163689C500B24844 /* button_pushed.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE878163689C500B24844 /* button_pushed.wav */; };
 		A3FCE87F1636F82C00B24844 /* fuel.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE87E1636F82C00B24844 /* fuel.png */; };
+		A3FCE8871637454700B24844 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FCE8861637454700B24844 /* PauseLayer.m */; };
+		A3FCE8921638222800B24844 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FCE8911638222800B24844 /* GameOverScene.m */; };
+		A3FCE89516382A3800B24844 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FCE89416382A3800B24844 /* Fuel.m */; };
+		A3FCE89716384B4D00B24844 /* fuel_guage.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89616384B4D00B24844 /* fuel_guage.png */; };
+		A3FCE89916384C7000B24844 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89816384C7000B24844 /* game_over.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -411,7 +416,7 @@
 		A33C6802162EF35E0084BC45 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		A3CEA1171632FA80000BFA37 /* bg_1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_1_2.png; path = Resources/bg_1_2.png; sourceTree = "<group>"; };
 		A3CEA1181632FA80000BFA37 /* bg_1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_1_1.png; path = Resources/bg_1_1.png; sourceTree = "<group>"; };
-		A3CEA1241632FE35000BFA37 /* luke bad guy loop-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "luke bad guy loop-1.mp3"; sourceTree = "<group>"; };
+		A3CEA1241632FE35000BFA37 /* evil_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = evil_music.mp3; sourceTree = "<group>"; };
 		A3CEA1251632FE35000BFA37 /* luke loop 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "luke loop 1.mp3"; sourceTree = "<group>"; };
 		A3CEA1261632FE35000BFA37 /* luke loop 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "luke loop 2.mp3"; sourceTree = "<group>"; };
 		A3CEA1271632FE35000BFA37 /* luke loop 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "luke loop 3.mp3"; sourceTree = "<group>"; };
@@ -431,12 +436,20 @@
 		A3CEA14616332B4F000BFA37 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resume.png; path = Resources/resume.png; sourceTree = "<group>"; };
 		A3E2015E163407CA00151E0D /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = "Astro Archie/Coin.h"; sourceTree = "<group>"; };
 		A3E2015F163407CA00151E0D /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coin.m; path = "Astro Archie/Coin.m"; sourceTree = "<group>"; };
-		A3E20162163455BB00151E0D /* CoinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoinManager.h; path = "Astro Archie/CoinManager.h"; sourceTree = "<group>"; };
-		A3E20163163455BB00151E0D /* CoinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoinManager.m; path = "Astro Archie/CoinManager.m"; sourceTree = "<group>"; };
+		A3E20162163455BB00151E0D /* CollectablesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectablesManager.h; path = "Astro Archie/CollectablesManager.h"; sourceTree = "<group>"; };
+		A3E20163163455BB00151E0D /* CollectablesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectablesManager.m; path = "Astro Archie/CollectablesManager.m"; sourceTree = "<group>"; };
 		A3E201651634584A00151E0D /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Resources/coin.png; sourceTree = "<group>"; };
 		A3E20167163468A900151E0D /* coin_collect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin_collect.mp3; sourceTree = "<group>"; };
 		A3FCE878163689C500B24844 /* button_pushed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_pushed.wav; sourceTree = "<group>"; };
 		A3FCE87E1636F82C00B24844 /* fuel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuel.png; path = Resources/fuel.png; sourceTree = "<group>"; };
+		A3FCE8851637454700B24844 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
+		A3FCE8861637454700B24844 /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
+		A3FCE88D163820FD00B24844 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		A3FCE8911638222800B24844 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
+		A3FCE89316382A3800B24844 /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuel.h; sourceTree = "<group>"; };
+		A3FCE89416382A3800B24844 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fuel.m; sourceTree = "<group>"; };
+		A3FCE89616384B4D00B24844 /* fuel_guage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuel_guage.png; path = Resources/fuel_guage.png; sourceTree = "<group>"; };
+		A3FCE89816384C7000B24844 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,14 +474,16 @@
 		A314E8B6163076AE0060AD87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A3E20162163455BB00151E0D /* CoinManager.h */,
-				A3E20163163455BB00151E0D /* CoinManager.m */,
+				A3E20162163455BB00151E0D /* CollectablesManager.h */,
+				A3E20163163455BB00151E0D /* CollectablesManager.m */,
 				A314E8B71630771F0060AD87 /* Game.h */,
 				A314E8B81630771F0060AD87 /* Game.m */,
 				A314E8BA163077330060AD87 /* Player.h */,
 				A314E8BB163077330060AD87 /* Player.m */,
 				A3E2015E163407CA00151E0D /* Coin.h */,
 				A3E2015F163407CA00151E0D /* Coin.m */,
+				A3FCE89316382A3800B24844 /* Fuel.h */,
+				A3FCE89416382A3800B24844 /* Fuel.m */,
 			);
 			name = Models;
 			path = ..;
@@ -859,6 +874,8 @@
 				A33C67F9162EF2EF0084BC45 /* MenuScene.m */,
 				A33C6801162EF35E0084BC45 /* GameScene.h */,
 				A33C6802162EF35E0084BC45 /* GameScene.m */,
+				A3FCE88D163820FD00B24844 /* GameOverScene.h */,
+				A3FCE8911638222800B24844 /* GameOverScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -893,7 +910,7 @@
 		A3CEA11E1632FD85000BFA37 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A3FCE87E1636F82C00B24844 /* fuel.png */,
+				A3FCE89616384B4D00B24844 /* fuel_guage.png */,
 				A3CEA13D16331AB8000BFA37 /* pause_pushed.png */,
 				A3CEA14316332B4F000BFA37 /* quit_pushed.png */,
 				A3CEA14416332B4F000BFA37 /* quit.png */,
@@ -911,6 +928,7 @@
 		A3CEA11F1632FD95000BFA37 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A3FCE87E1636F82C00B24844 /* fuel.png */,
 				A3E201651634584A00151E0D /* coin.png */,
 				A314E8B3163062BF0060AD87 /* archie-ipad.png */,
 				A314E8AE162F010E0060AD87 /* archie.png */,
@@ -944,7 +962,7 @@
 		A3CEA1221632FE02000BFA37 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				A3CEA1241632FE35000BFA37 /* luke bad guy loop-1.mp3 */,
+				A3CEA1241632FE35000BFA37 /* evil_music.mp3 */,
 				A3CEA1251632FE35000BFA37 /* luke loop 1.mp3 */,
 				A3CEA1261632FE35000BFA37 /* luke loop 2.mp3 */,
 				A3CEA1271632FE35000BFA37 /* luke loop 3.mp3 */,
@@ -958,6 +976,7 @@
 		A3CEA1231632FE13000BFA37 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				A3FCE89816384C7000B24844 /* game_over.wav */,
 				A3FCE878163689C500B24844 /* button_pushed.wav */,
 				A3E20167163468A900151E0D /* coin_collect.mp3 */,
 				A3CEA1361632FF4C000BFA37 /* Comical Metal Gong.wav */,
@@ -970,6 +989,8 @@
 		A3CEA13816330360000BFA37 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				A3FCE8851637454700B24844 /* PauseLayer.h */,
+				A3FCE8861637454700B24844 /* PauseLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1039,7 +1060,7 @@
 				A314E8B5163062BF0060AD87 /* archie-ipad.png in Resources */,
 				A3CEA1191632FA80000BFA37 /* bg_1_2.png in Resources */,
 				A3CEA11A1632FA80000BFA37 /* bg_1_1.png in Resources */,
-				A3CEA12B1632FE35000BFA37 /* luke bad guy loop-1.mp3 in Resources */,
+				A3CEA12B1632FE35000BFA37 /* evil_music.mp3 in Resources */,
 				A3CEA12C1632FE35000BFA37 /* luke loop 1.mp3 in Resources */,
 				A3CEA12D1632FE35000BFA37 /* luke loop 2.mp3 in Resources */,
 				A3CEA12E1632FE35000BFA37 /* luke loop 3.mp3 in Resources */,
@@ -1061,6 +1082,8 @@
 				A3E20168163468A900151E0D /* coin_collect.mp3 in Resources */,
 				A3FCE879163689C500B24844 /* button_pushed.wav in Resources */,
 				A3FCE87F1636F82C00B24844 /* fuel.png in Resources */,
+				A3FCE89716384B4D00B24844 /* fuel_guage.png in Resources */,
+				A3FCE89916384C7000B24844 /* game_over.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1175,7 +1198,10 @@
 				A314E8B91630771F0060AD87 /* Game.m in Sources */,
 				A314E8BC163077330060AD87 /* Player.m in Sources */,
 				A3E20160163407CA00151E0D /* Coin.m in Sources */,
-				A3E20164163455BB00151E0D /* CoinManager.m in Sources */,
+				A3E20164163455BB00151E0D /* CollectablesManager.m in Sources */,
+				A3FCE8871637454700B24844 /* PauseLayer.m in Sources */,
+				A3FCE8921638222800B24844 /* GameOverScene.m in Sources */,
+				A3FCE89516382A3800B24844 /* Fuel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

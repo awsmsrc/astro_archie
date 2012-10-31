@@ -10,11 +10,11 @@
 #import "cocos2d.h"
 #import "Player.h"
 
-@interface CoinManager : CCNode {
+@interface CollectablesManager : CCNode {
 }
 
-@property(nonatomic,retain)NSMutableArray *visibleCoins;
-@property(nonatomic,retain)NSMutableArray *hiddenCoins;
+@property(nonatomic,retain)NSMutableArray *visibleObjects;
+@property(nonatomic,retain)NSMutableArray *hiddenObjects;
 
 -(id)initWithParentNode:(id)parentNode;
 -(void)handleCollisionsWith:(Player *)player;

@@ -7,12 +7,14 @@
 //
 
 #import "GameScene.h"
+#import "PauseLayer.h"
 #import "SimpleAudioEngine.h"
+#import "GameOverScene.h"
 
 
 
 @implementation GameScene
-@synthesize coinManager = _coinManager;
+@synthesize collectableManager = _coinManager;
 
 +(id)scene
 {
@@ -56,7 +58,7 @@
   bg.anchorPoint = ccp(0,0);
   bg.position = bg.anchorPoint;
   [gameLayer addChild:bg z:-1];
-  [self setCoinManager:[[CoinManager alloc] initWithParentNode:gameLayer]];
+  [self setCollectableManager:[[CollectablesManager alloc] initWithParentNode:gameLayer]];
 }
 
 -(void)addPlayer
@@ -97,18 +99,18 @@
   
   //fuel guage
   //initialize progress bar
-  fuel = [CCProgressTimer progressWithFile:@"fuel.png"];
+  fuelGuage = [CCProgressTimer progressWithFile:@"fuel_guage.png"];
   
   //set the progress bar type to horizontal from left to right
-  fuel.type = kCCProgressTimerTypeHorizontalBarLR;
+  fuelGuage.type = kCCProgressTimerTypeHorizontalBarLR;
   
   //initialize the progress bar to zero
-  fuel.percentage = 100;
+  fuelGuage.percentage = 100;
   
   //add the CCProgressTimer to our layer and set its position
-  [hudLayer addChild:fuel z:1 tag:20];
-  [fuel setAnchorPoint:ccp(0,0)];
-  [fuel setPosition:ccp(60, screenSize.height - 40)];
+  [hudLayer addChild:fuelGuage z:1 tag:20];
+  [fuelGuage setAnchorPoint:ccp(0,0)];
+  [fuelGuage setPosition:ccp(60, screenSize.height - 40)];
 
 }
 
@@ -119,50 +121,30 @@
     _pauseScreenUp= YES;
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     [[CCDirector sharedDirector] pause];
-    pauseLayer = [CCLayerColor layerWithColor: ccc4(80, 80, 80, 160) width: screenSize.width height: screenSize.height];
-    pauseLayer.position = CGPointZero;
-    [hudLayer addChild: pauseLayer];
-    
-    
-    CCMenuItem *ResumeMenuItem = [CCMenuItemImage
-                                itemFromNormalImage:@"resume.png" selectedImage:@"resume_pushed.png"
-                              target:self selector:@selector(ResumeButtonTapped:)];
-    ResumeMenuItem.position = ccp(0, 30);
-    
-    CCMenuItem *QuitMenuItem = [CCMenuItemImage
-                               itemFromNormalImage:@"quit.png" selectedImage:@"quit_pushed.png"
-                               target:self selector:@selector(QuitButtonTapped:)];
-    QuitMenuItem.position = ccp(0, -30);
-    
-    _pauseScreenMenu = [CCMenu menuWithItems:ResumeMenuItem,QuitMenuItem, nil];
-    [hudLayer addChild:_pauseScreenMenu z:99999];
+    [PauseLayer pauseLayerWithParentNode:hudLayer];
   }
 }
 
--(void)ResumeButtonTapped:(id)sender{
-  [self buttonPushed];
-  [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-  [hudLayer removeChild:_pauseScreenMenu cleanup:YES];
-  [hudLayer removeChild:pauseLayer cleanup:YES];
-  [[CCDirector sharedDirector] resume];
-  _pauseScreenUp=FALSE;
+-(void)pushGameOverScene
+{
+  [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
+  [[SimpleAudioEngine  sharedEngine] playEffect:@"game_over.wav"];
+
+  GameOverScene * gos = [[GameOverScene alloc] initWithScore:[player score]];
+  [self unscheduleAllSelectors];
+  [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gos]];
 }
 
--(void)QuitButtonTapped:(id)sender{
-  [self buttonPushed];
-   [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-  [hudLayer removeChild:_pauseScreenMenu cleanup:YES];
-  [hudLayer removeChild:pauseLayer cleanup:YES];
-  [[CCDirector sharedDirector] resume];
-  _pauseScreenUp=FALSE;
-  MenuScene * ms = [MenuScene node];
-  [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: ms]];
+-(void)gameResumed
+{
+  _pauseScreenUp = NO;
 }
+
 
 -(void)update:(ccTime)delta
 {
   [self increaseAltitude];
-  [[self coinManager] handleCollisionsWith:player];
+  [[self collectableManager] handleCollisionsWith:player];
   [scoreLabel setString:[NSString stringWithFormat:@"%i", [player score]]];
 }
 
@@ -179,8 +161,12 @@
 -(void)increaseAltitude
 {
   bg.position = ccp(bg.position.x, bg.position.y - 2);
-  fuel.percentage = fuel.percentage - 0.05f;
-  [[self coinManager] animateCoins:2];
+  [player decrementFuel];
+  fuelGuage.percentage = [player fuel];
+  if([player fuel] < 0){
+    [self pushGameOverScene];
+  }
+  [[self collectableManager] animateCoins:2];
 }
 
 -(void)dealloc
