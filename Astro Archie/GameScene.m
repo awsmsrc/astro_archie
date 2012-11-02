@@ -144,6 +144,7 @@
 -(void)update:(ccTime)delta
 {
   [self increaseAltitude];
+  [[self collectableManager] populateObjects];
   [[self collectableManager] handleCollisionsWith:player];
   [scoreLabel setString:[NSString stringWithFormat:@"%i", [player score]]];
 }

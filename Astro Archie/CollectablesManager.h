@@ -11,6 +11,8 @@
 #import "Player.h"
 
 @interface CollectablesManager : CCNode {
+  CGPoint _highestCoin;
+  CGSize _screenSize;
 }
 
 @property(nonatomic,retain)NSMutableArray *visibleCoins;

@@ -13,93 +13,170 @@
 
 @implementation CollectablesManager
 
-@synthesize visibleObjects = _visibleObjects;
-@synthesize hiddenObjects = _hiddenObects;
+@synthesize visibleCoins = _visibleCoins;
+@synthesize hiddenCoins = _hiddenCoins;
 
 -(id)initWithParentNode:(id)parentNode{
   if(self = [super init]){
     [parentNode addChild:self];
-    
-    //add coins to array
-    //this should only fill the visible screen really
-    for(int i=0; i < 100; i++){
+    _screenSize = [[CCDirector sharedDirector] winSize];
+    _highestCoin = CGPointMake(0,_screenSize.height/2);
+    for(int i=0; i < 30; i++){
       Coin *coin = [[Coin alloc] initWithParentNode:parentNode];
-      [[self visibleObjects] addObject:coin];
+      [coin sprite].position = ccp(-50,-50);
+      [[self hiddenCoins] addObject:coin];
     }
-    
-    //add fuel to array
-    for(int i=0; i < 20; i++){
+    for(int i=0; i < 5; i++){
       Fuel *fuel = [[Fuel alloc] initWithParentNode:parentNode];
-      [[self visibleObjects] addObject:fuel];
+      [fuel sprite].position = ccp(-50,-50);
+      [[self hiddenCoins] addObject:fuel];
     }
-    
-    //need to randomize order of object is array here
-    for (NSUInteger i = 0; i < [[self visibleObjects] count]; ++i) {
-      // Select a random element between i and end of array to swap with.
-      int nElements = [[self visibleObjects] count] - i;
-      int n = (random() % nElements) + i;
-      [[self visibleObjects] exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    
-    
-    //set initial positions
-    for(int i=0; i < [[self visibleObjects] count]; i ++){
-      int x = arc4random()%440 + 20;
-      int y = (arc4random()%100 + 50) + (i * 70);
-      [[[self visibleObjects]objectAtIndex:i] sprite].position = ccp(x,y);
-    }
-
+    [self drawRandomLine];
   }
   return self;
 }
 
--(NSMutableArray *)visibleObjects
+-(NSMutableArray *)visibleCoins
 {
-  if(!_visibleObjects){
-    _visibleObjects  = [[NSMutableArray alloc] init];
+  if(!_visibleCoins){
+    _visibleCoins  = [[NSMutableArray alloc] init];
   }
-  return _visibleObjects;
+  return _visibleCoins;
 }
 
--(NSMutableArray *)hiddenObjects
+-(NSMutableArray *)hiddenCoins
 {
-  if(!_hiddenObects){
-    _hiddenObects  = [[NSMutableArray alloc] init];
+  if(!_hiddenCoins){
+    _hiddenCoins  = [[NSMutableArray alloc] init];
   }
-  return _hiddenObects;
+  return _hiddenCoins;
 }
 
 
 -(void)animateCoins:(int)distance
 {
-  for(Coin *coin in [self visibleObjects]){
+  for(Coin *coin in [self visibleCoins]){
     coin.sprite.position = ccp(coin.sprite.position.x, coin.sprite.position.y - distance);
+    if(coin.sprite.position.y < -10){
+      [[self hiddenCoins] addObject:coin];
+    }
   }
+  [[self visibleCoins] removeObjectsInArray:[self hiddenCoins]];
+  _highestCoin.y -= distance;
 }
 
 -(void)handleCollisionsWith:(Player *)player
 {
-  NSMutableArray *tempArray = [[[NSMutableArray alloc] init] autorelease];
-  for(int i=0; i < [[self visibleObjects] count]; i++){
-    if(CGRectIntersectsRect([player spriteBox], [[[self visibleObjects] objectAtIndex:i] spriteBox])){
-      [player didCollideWithObject:[[self visibleObjects] objectAtIndex:i]];
+  for(Coin *selectedCoin in [self visibleCoins]){
+    if(CGRectIntersectsRect([player spriteBox], [selectedCoin spriteBox])){
+      NSLog(@"collision");
+//      if([selectedCoin isKindOfClass:[Coin class]]){
+//        [player didCollectCoin];
+//      }
+//      else if([selectedCoin isKindOfClass:[Fuel class]]){
+//        [player didCollectFuel];
+//      }
+      [player didCollideWithObject:selectedCoin];
       [[SimpleAudioEngine sharedEngine] playEffect:@"coin_collect.mp3"];
-      [[self hiddenObjects] addObject:[[self visibleObjects] objectAtIndex:i]];
-      NSNumber *num = [NSNumber numberWithInt:i];
-      [tempArray addObject:num];
+      selectedCoin.sprite.position = CGPointMake(-50, -50);
+      [[self hiddenCoins] addObject:selectedCoin];
     }
   }
-  for(int i=0; i < [tempArray count]; i++){
-    id token = [[self visibleObjects] objectAtIndex:(NSNumber *)[[tempArray objectAtIndex:i] intValue]];
-    [token removeFromParentAndCleanup:NO];
-    [[self visibleObjects] removeObjectAtIndex:[(NSNumber *)[tempArray objectAtIndex:i] intValue]];
+  [[self visibleCoins] removeObjectsInArray:[self hiddenCoins]];
+}
+
+-(void)populateObjects{
+  NSLog(@"hidden: %i | visible: %i" ,[[self hiddenCoins] count],[[self visibleCoins] count]);
+  if([[self hiddenCoins] count] >= 10){
+    [self shuffleHidden];
+    int randNum = arc4random_uniform(10);
+    switch (randNum) {
+      case 0:
+        //[self drawCircle];
+        //break;
+      case 1:
+        //[self drawTriangle];
+        //break;
+      case 2:
+        //[self drawDiamond];
+        //break;
+      case 3:
+        [self drawSquare];
+        break;
+      default:
+        [self drawRandomLine];
+        break;
+    }
   }
+  
+}
+
+-(void)shuffleHidden
+{
+  int count = [[self hiddenCoins] count];
+  for (int i = 0; i < count; ++i) {
+    int nElements = count - i;
+    int n = (arc4random_uniform(nElements) + i);
+    [[self hiddenCoins] exchangeObjectAtIndex:i withObjectAtIndex:n];
+  }
+}
+
+-(void)drawRandomLine
+{
+  CGPoint pos;
+  for(int i =0; i < 10; i++){
+    pos.x = arc4random_uniform(0.8 * _screenSize.width) + (0.1 * _screenSize.width);
+    pos.y = (arc4random_uniform(100) + 20) + _highestCoin.y;
+    _highestCoin.y = pos.y;
+    Coin *selectedCoin = [[self hiddenCoins] objectAtIndex:i];
+    selectedCoin.sprite.position = pos;
+    [[self visibleCoins] addObject:selectedCoin];
+  }
+  _highestCoin.x = pos.x;
+  [[self hiddenCoins] removeObjectsInArray:[self visibleCoins]];
+}
+
+-(void)drawSquare
+{
+  CGPoint startPos, pos;
+  startPos.x = arc4random_uniform(_screenSize.width/2) + _screenSize.width/4;
+  startPos.y = (arc4random_uniform(50) + 20) + _highestCoin.y;
+  int i = 0;
+  for(int y=0; y < 3; y++){
+    pos.y = startPos.y + y * 60;
+    for(int x=0; x < 3; x++){
+      Coin *selectedCoin = [[self hiddenCoins] objectAtIndex:i];
+      pos.x = startPos.x + x * 30;
+      selectedCoin.sprite.position = pos;
+      [[self visibleCoins] addObject:selectedCoin];
+      i++;
+    }
+  }
+  _highestCoin.x = pos.x;
+  _highestCoin.y = pos.y + arc4random_uniform(100) + 10;
+  [[self hiddenCoins] removeObjectsInArray:[self visibleCoins]];
+}
+
+-(void)drawCircle
+{
+  //code to draw circle
+}
+
+-(void)drawDiamond
+{
+  //code to draw diamond
+}
+
+-(void)drawTriangle
+{
+  //code to draw triangle
 }
 
 -(void)dealloc
 {
   [super dealloc];
-  [[self visibleObjects] release];
+  [[self visibleCoins] release];
+  [[self hiddenCoins] release];
 }
 
 @end
