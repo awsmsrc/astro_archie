@@ -13,17 +13,11 @@
 @interface CollectablesManager : CCNode {
 }
 
-@property(nonatomic,retain)NSMutableArray *visibleCoins;
-@property(nonatomic,retain)NSMutableArray *hiddenCoins;
+@property(nonatomic,retain)NSMutableArray *visibleObjects;
+@property(nonatomic,retain)NSMutableArray *hiddenObjects;
 
 -(id)initWithParentNode:(id)parentNode;
 -(void)handleCollisionsWith:(Player *)player;
 -(void)animateCoins:(int)distance;
--(void)populateObjects;
--(void)drawRandomLine;
--(void)drawSquare;
--(void)drawCircle;
--(void)drawDiamond;
--(void)drawTriangle;
--(void)shuffleHidden;
+
 @end
