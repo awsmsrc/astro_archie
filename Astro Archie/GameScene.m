@@ -43,6 +43,7 @@
   self.isTouchEnabled = YES;
   self.isAccelerometerEnabled = YES;
   [self scheduleUpdate];
+  [self schedule:@selector(increaseSpeed) interval:8];
 }
 
 -(void)setUpScene
@@ -140,6 +141,14 @@
   _pauseScreenUp = NO;
 }
 
+-(void)increaseSpeed
+{
+  float current = player.getYVelocity;
+  current += current/4;
+  [player  setTargetYVelocity:current];
+  NSLog(@"increasing speed");
+}
+
 
 -(void)update:(ccTime)delta
 {
@@ -161,13 +170,13 @@
 
 -(void)increaseAltitude
 {
-  bg.position = ccp(bg.position.x, bg.position.y - 2);
+  bg.position = ccp(bg.position.x, bg.position.y - [player getYVelocity]);
   [player decrementFuel];
   fuelGuage.percentage = [player fuel];
   if([player fuel] < 0){
     [self pushGameOverScene];
   }
-  [[self collectableManager] animateCoins:2];
+  [[self collectableManager] animateCoins:[player getYVelocity]];
 }
 
 -(void)dealloc

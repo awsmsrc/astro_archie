@@ -21,6 +21,7 @@
   if(self = [super init]){
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     _fuel = 100;
+    _velocity.y = 3;
     [self setSprite:[CCSprite spriteWithFile:@"archie.png"]];
     float imageHeight = [_sprite texture].contentSize.height;
     [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
@@ -36,7 +37,7 @@
   CCSequence *seq = [CCSequence actions:
                     [CCDelayTime actionWithDuration:1.2],
                     [CCCallFunc actionWithTarget:self selector:@selector(takeOffDidBegin)],
-                    [CCMoveTo actionWithDuration:0.35 position:ccp(_sprite.position.x, _sprite.position.y + screenSize.height/5)],
+                    [CCMoveTo actionWithDuration:0.35 position:ccp(_sprite.position.x, _sprite.position.y + screenSize.height/6)],
                     [CCCallFunc actionWithTarget:self.parent.parent selector:@selector(beginGameplay)],
                     [CCCallFunc actionWithTarget:self selector:@selector(scheduleUpdate)],
                     nil];
@@ -60,10 +61,10 @@
 
 -(void)didCollectFuel
 {
-  if(_fuel >= 70){
+  if(_fuel >= 80){
     _fuel = 100;
   }else{
-    _fuel = _fuel + 30;
+    _fuel = _fuel + 20;
   }
 }
 
@@ -79,7 +80,7 @@
 
 -(void)decrementFuel
 {
-  _fuel = _fuel - 0.05f;
+  _fuel = _fuel - ([self getYVelocity]/25);
 }
 
 -(int)score
@@ -106,9 +107,22 @@
   }
 }
 
+-(float)getYVelocity
+{
+  return _velocity.y;
+}
+
+-(void)setTargetYVelocity:(float)targetVelocity
+{
+  _targetYVelocity = targetVelocity;
+}
+
 -(void)update:(ccTime)delta
 {
   [self steerArchie];
+  if(_targetYVelocity > [self getYVelocity]){
+    _velocity.y = MIN(_velocity.y += 0.2, _targetYVelocity);
+  }
 }
 
 -(void)steerArchie
@@ -122,10 +136,10 @@
   float rightBorderLimit = screenSize.width - imageWidthHalved;
   if(pos.x < leftBorderLimit){
     pos.x = leftBorderLimit;
-    _velocity = CGPointZero;
+    _velocity.x = 0;
   }else if(pos.x > rightBorderLimit){
     pos.x = rightBorderLimit;
-    _velocity = CGPointZero;
+    _velocity.x = 0;
   }
   _sprite.position = pos;
 }

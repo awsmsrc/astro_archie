@@ -24,6 +24,10 @@
 -(id)init
 {
   if((self = [super init])){
+    CCSprite *bg = [CCSprite spriteWithFile:@"menu_bg.png"];
+    bg.anchorPoint = ccp(0,0);
+    bg.position = ccp(0,0);
+    [self addChild:bg z:-1];
     CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:@"play_off.png" selectedImage:@"play_on.png"
                                                            target:self
                                                          selector:@selector(startGame)];

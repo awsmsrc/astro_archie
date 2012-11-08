@@ -69,7 +69,6 @@
 {
   for(Coin *selectedCoin in [self visibleCoins]){
     if(CGRectIntersectsRect([player spriteBox], [selectedCoin spriteBox])){
-      NSLog(@"collision");
 //      if([selectedCoin isKindOfClass:[Coin class]]){
 //        [player didCollectCoin];
 //      }
@@ -86,7 +85,7 @@
 }
 
 -(void)populateObjects{
-  NSLog(@"hidden: %i | visible: %i" ,[[self hiddenCoins] count],[[self visibleCoins] count]);
+  //NSLog(@"hidden: %i | visible: %i" ,[[self hiddenCoins] count],[[self visibleCoins] count]);
   if([[self hiddenCoins] count] >= 10){
     [self shuffleHidden];
     int randNum = arc4random_uniform(10);

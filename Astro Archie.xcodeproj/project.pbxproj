@@ -7,12 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30438E5164ABB9C00308F20 /* starY.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438E3164ABB9C00308F20 /* starY.png */; };
+		A30438E6164ABB9C00308F20 /* starP.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438E4164ABB9C00308F20 /* starP.png */; };
+		A30438F0164ABE7C00308F20 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438EE164ABE7C00308F20 /* Icon-72@2x.png */; };
+		A30438F1164ABE7C00308F20 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438EF164ABE7C00308F20 /* Icon-72.png */; };
+		A30438F3164ABF8800308F20 /* launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438F2164ABF8800308F20 /* launchscreen.png */; };
+		A30438F5164ABF9200308F20 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438F4164ABF9200308F20 /* Default-Portrait~ipad.png */; };
+		A30438F7164ABFAD00308F20 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438F6164ABFAD00308F20 /* Default-Landscape~ipad.png */; };
+		A30438F9164ABFC100308F20 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438F8164ABFC100308F20 /* Default-Portrait@2x~ipad.png */; };
+		A30438FB164AC02F00308F20 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A30438FA164AC02F00308F20 /* Default.png */; };
 		A314E8A1162EF7310060AD87 /* play_off.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E89F162EF7310060AD87 /* play_off.png */; };
 		A314E8A2162EF7310060AD87 /* play_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8A0162EF7310060AD87 /* play_on.png */; };
 		A314E8AF162F010E0060AD87 /* archie.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8AE162F010E0060AD87 /* archie.png */; };
 		A314E8B5163062BF0060AD87 /* archie-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8B3163062BF0060AD87 /* archie-ipad.png */; };
 		A314E8B91630771F0060AD87 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A314E8B81630771F0060AD87 /* Game.m */; };
 		A314E8BC163077330060AD87 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A314E8BB163077330060AD87 /* Player.m */; };
+		A339F7BB164AC5C30089FF09 /* menu_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A339F7BA164AC5C30089FF09 /* menu_bg.png */; };
+		A339F7BE164AC6F70089FF09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A339F7BD164AC6F70089FF09 /* Default@2x.png */; };
+		A339F7C0164AC6FC0089FF09 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A339F7BF164AC6FC0089FF09 /* Default-568h@2x.png */; };
 		A33C6681162EEB650084BC45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6680162EEB650084BC45 /* QuartzCore.framework */; };
 		A33C6683162EEB650084BC45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6682162EEB650084BC45 /* OpenGLES.framework */; };
 		A33C6685162EEB650084BC45 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6684162EEB650084BC45 /* OpenAL.framework */; };
@@ -165,6 +177,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A30438E3164ABB9C00308F20 /* starY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starY.png; path = Resources/starY.png; sourceTree = "<group>"; };
+		A30438E4164ABB9C00308F20 /* starP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starP.png; path = Resources/starP.png; sourceTree = "<group>"; };
+		A30438EE164ABE7C00308F20 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/Icon-72@2x.png"; sourceTree = "<group>"; };
+		A30438EF164ABE7C00308F20 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
+		A30438F2164ABF8800308F20 /* launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchscreen.png; path = Resources/launchscreen.png; sourceTree = "<group>"; };
+		A30438F4164ABF9200308F20 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		A30438F6164ABFAD00308F20 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		A30438F8164ABFC100308F20 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		A30438FA164AC02F00308F20 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A314E89F162EF7310060AD87 /* play_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_off.png; path = Resources/play_off.png; sourceTree = "<group>"; };
 		A314E8A0162EF7310060AD87 /* play_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_on.png; path = Resources/play_on.png; sourceTree = "<group>"; };
 		A314E8AE162F010E0060AD87 /* archie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = archie.png; path = Resources/archie.png; sourceTree = "<group>"; };
@@ -173,6 +194,9 @@
 		A314E8B81630771F0060AD87 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = "Astro Archie/Game.m"; sourceTree = "<group>"; };
 		A314E8BA163077330060AD87 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = "Astro Archie/Player.h"; sourceTree = "<group>"; };
 		A314E8BB163077330060AD87 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = "Astro Archie/Player.m"; sourceTree = "<group>"; };
+		A339F7BA164AC5C30089FF09 /* menu_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_bg.png; path = Resources/menu_bg.png; sourceTree = "<group>"; };
+		A339F7BD164AC6F70089FF09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A339F7BF164AC6FC0089FF09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A33C667C162EEB650084BC45 /* Astro Archie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astro Archie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33C6680162EEB650084BC45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A33C6682162EEB650084BC45 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -492,6 +516,12 @@
 		A33C6671162EEB650084BC45 = {
 			isa = PBXGroup;
 			children = (
+				A339F7BF164AC6FC0089FF09 /* Default-568h@2x.png */,
+				A339F7BD164AC6F70089FF09 /* Default@2x.png */,
+				A30438FA164AC02F00308F20 /* Default.png */,
+				A30438F8164ABFC100308F20 /* Default-Portrait@2x~ipad.png */,
+				A30438F6164ABFAD00308F20 /* Default-Landscape~ipad.png */,
+				A30438F4164ABF9200308F20 /* Default-Portrait~ipad.png */,
 				A33C6690162EEB650084BC45 /* Astro Archie */,
 				A33C667F162EEB650084BC45 /* Frameworks */,
 				A33C667D162EEB650084BC45 /* Products */,
@@ -928,6 +958,8 @@
 		A3CEA11F1632FD95000BFA37 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A30438E3164ABB9C00308F20 /* starY.png */,
+				A30438E4164ABB9C00308F20 /* starP.png */,
 				A3FCE87E1636F82C00B24844 /* fuel.png */,
 				A3E201651634584A00151E0D /* coin.png */,
 				A314E8B3163062BF0060AD87 /* archie-ipad.png */,
@@ -939,6 +971,7 @@
 		A3CEA1201632FDB1000BFA37 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A339F7BA164AC5C30089FF09 /* menu_bg.png */,
 				A3CEA1171632FA80000BFA37 /* bg_1_2.png */,
 				A3CEA1181632FA80000BFA37 /* bg_1_1.png */,
 			);
@@ -948,7 +981,10 @@
 		A3CEA1211632FDC1000BFA37 /* iOS images */ = {
 			isa = PBXGroup;
 			children = (
+				A30438F2164ABF8800308F20 /* launchscreen.png */,
 				A33C6692162EEB650084BC45 /* Default.png */,
+				A30438EE164ABE7C00308F20 /* Icon-72@2x.png */,
+				A30438EF164ABE7C00308F20 /* Icon-72.png */,
 				A33C6696162EEB650084BC45 /* Icon-72.png */,
 				A33C6698162EEB650084BC45 /* Icon-Small-50.png */,
 				A33C669A162EEB650084BC45 /* Icon-Small.png */,
@@ -1084,6 +1120,18 @@
 				A3FCE87F1636F82C00B24844 /* fuel.png in Resources */,
 				A3FCE89716384B4D00B24844 /* fuel_guage.png in Resources */,
 				A3FCE89916384C7000B24844 /* game_over.wav in Resources */,
+				A30438E5164ABB9C00308F20 /* starY.png in Resources */,
+				A30438E6164ABB9C00308F20 /* starP.png in Resources */,
+				A30438F0164ABE7C00308F20 /* Icon-72@2x.png in Resources */,
+				A30438F1164ABE7C00308F20 /* Icon-72.png in Resources */,
+				A30438F3164ABF8800308F20 /* launchscreen.png in Resources */,
+				A30438F5164ABF9200308F20 /* Default-Portrait~ipad.png in Resources */,
+				A30438F7164ABFAD00308F20 /* Default-Landscape~ipad.png in Resources */,
+				A30438F9164ABFC100308F20 /* Default-Portrait@2x~ipad.png in Resources */,
+				A30438FB164AC02F00308F20 /* Default.png in Resources */,
+				A339F7BB164AC5C30089FF09 /* menu_bg.png in Resources */,
+				A339F7BE164AC6F70089FF09 /* Default@2x.png in Resources */,
+				A339F7C0164AC6FC0089FF09 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1258,7 +1306,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1276,7 +1324,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

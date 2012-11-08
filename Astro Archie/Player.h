@@ -11,6 +11,7 @@
 
 @interface Player : CCNode {
   CGPoint _velocity;
+  float _targetYVelocity;
   int _score;
   float _fuel;
 }
@@ -22,6 +23,8 @@
 -(void)incrementScore;
 -(int)score;
 -(void)decrementFuel;
+-(float)getYVelocity;
+-(void)setTargetYVelocity:(float)targetVelocity;
 -(float)fuel;
 -(CGRect)spriteBox;
 @end

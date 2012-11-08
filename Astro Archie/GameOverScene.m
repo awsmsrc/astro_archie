@@ -24,6 +24,10 @@
 -(id)init
 {
   if((self = [super init])){
+    CCSprite *bg = [CCSprite spriteWithFile:@"menu_bg.png"];
+    bg.anchorPoint = ccp(0,0);
+    bg.position = ccp(0,0);
+    [self addChild:bg z:-1];
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"GAME OVER" fontName:@"Arial" fontSize:30];
     titleLabel.position = ccp(screenSize.width/2, screenSize.height - 50);
