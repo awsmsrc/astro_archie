@@ -147,6 +147,10 @@
   current += current/4;
   [player  setTargetYVelocity:current];
   NSLog(@"increasing speed");
+  
+  //testing special creation having it create one every time velocity increases, Specials can be added elswhere to better effect
+  [[self collectableManager] addSpecial:gameLayer];
+  
 }
 
 

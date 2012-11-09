@@ -15,6 +15,7 @@
 
 @synthesize visibleCoins = _visibleCoins;
 @synthesize hiddenCoins = _hiddenCoins;
+@synthesize ObjectsToTrash = _ObjectsToTrash;
 
 -(id)initWithParentNode:(id)parentNode{
   if(self = [super init]){
@@ -23,12 +24,12 @@
     _highestCoin = CGPointMake(0,_screenSize.height/2);
     for(int i=0; i < 30; i++){
       Coin *coin = [[Coin alloc] initWithParentNode:parentNode];
-      [coin sprite].position = ccp(-50,-50);
+      [coin sprite].position = CGPointMake(-100,-100);
       [[self hiddenCoins] addObject:coin];
     }
     for(int i=0; i < 5; i++){
       Fuel *fuel = [[Fuel alloc] initWithParentNode:parentNode];
-      [fuel sprite].position = ccp(-50,-50);
+      [fuel sprite].position = CGPointMake(-100,-100);
       [[self hiddenCoins] addObject:fuel];
     }
     [self drawRandomLine];
@@ -51,37 +52,67 @@
   }
   return _hiddenCoins;
 }
+-(NSMutableArray *)ObjectsToTrash
+{
+  if(!_ObjectsToTrash){
+    _ObjectsToTrash  = [[NSMutableArray alloc] init];
+  }
+  return _ObjectsToTrash;
+}
 
 
 -(void)animateCoins:(int)distance
 {
   for(Coin *coin in [self visibleCoins]){
-    coin.sprite.position = ccp(coin.sprite.position.x, coin.sprite.position.y - distance);
-    if(coin.sprite.position.y < -10){
-      [[self hiddenCoins] addObject:coin];
+    coin.sprite.position = CGPointMake(coin.sprite.position.x, coin.sprite.position.y - distance);
+    if(coin.sprite.position.y < -10)
+    {
+      coin.sprite.position = CGPointMake(-100, -100);
+      if([coin isKindOfClass:[Special class]]){
+        [[self ObjectsToTrash] addObject:coin];
+      }
+      else{
+        [[self hiddenCoins] addObject:coin];
+      }
     }
   }
+  if([[self ObjectsToTrash] count] != 0 ){
+    [[self visibleCoins] removeObjectsInArray:[self ObjectsToTrash]];
+    [[self ObjectsToTrash] removeAllObjects];
+  }
   [[self visibleCoins] removeObjectsInArray:[self hiddenCoins]];
+  
+  //move the recorded position of the highest object
   _highestCoin.y -= distance;
 }
 
 -(void)handleCollisionsWith:(Player *)player
 {
-  for(Coin *selectedCoin in [self visibleCoins]){
+  for(Coin* selectedCoin in [self visibleCoins]){
     if(CGRectIntersectsRect([player spriteBox], [selectedCoin spriteBox])){
-//      if([selectedCoin isKindOfClass:[Coin class]]){
-//        [player didCollectCoin];
-//      }
-//      else if([selectedCoin isKindOfClass:[Fuel class]]){
-//        [player didCollectFuel];
-//      }
+      
       [player didCollideWithObject:selectedCoin];
       [[SimpleAudioEngine sharedEngine] playEffect:@"coin_collect.mp3"];
-      selectedCoin.sprite.position = CGPointMake(-50, -50);
-      [[self hiddenCoins] addObject:selectedCoin];
+      selectedCoin.sprite.position = CGPointMake(-100, -100);
+      
+      if([selectedCoin isKindOfClass:[Special class]]){
+        [[self ObjectsToTrash] addObject:selectedCoin];
+      }
+      else{        
+        [[self hiddenCoins] addObject:selectedCoin];
+      }
     }
   }
+  if([[self ObjectsToTrash] count] != 0 ){
+    [[self visibleCoins] removeObjectsInArray:[self ObjectsToTrash]];
+    [[self ObjectsToTrash] removeAllObjects];
+  }
   [[self visibleCoins] removeObjectsInArray:[self hiddenCoins]];
+}
+
+-(void)addSpecial:(id)parentNode{
+  Special *special = [[Special alloc] initWithParentNode:parentNode];
+  [[self hiddenCoins] addObject:special];
 }
 
 -(void)populateObjects{
@@ -124,11 +155,12 @@
 {
   CGPoint pos;
   for(int i =0; i < 10; i++){
-    pos.x = arc4random_uniform(0.8 * _screenSize.width) + (0.1 * _screenSize.width);
-    pos.y = (arc4random_uniform(100) + 20) + _highestCoin.y;
-    _highestCoin.y = pos.y;
+    pos.x = arc4random_uniform(0.7 * _screenSize.width) + (0.15 * _screenSize.width);
+    pos.y = arc4random_uniform(100) + _highestCoin.y;
     Coin *selectedCoin = [[self hiddenCoins] objectAtIndex:i];
+    pos.y += selectedCoin.spriteBox.size.height;
     selectedCoin.sprite.position = pos;
+    _highestCoin.y = pos.y + selectedCoin.spriteBox.size.height;
     [[self visibleCoins] addObject:selectedCoin];
   }
   _highestCoin.x = pos.x;
@@ -138,21 +170,37 @@
 -(void)drawSquare
 {
   CGPoint startPos, pos;
-  startPos.x = arc4random_uniform(_screenSize.width/2) + _screenSize.width/4;
-  startPos.y = (arc4random_uniform(50) + 20) + _highestCoin.y;
+  startPos.x = arc4random_uniform(0.7 *_screenSize.width) + (0.1 * _screenSize.width);
+  startPos.y = (arc4random_uniform(50) + 50) + _highestCoin.y;
+  float largestSpriteHeight = 0;
+  float largestSpriteWidth= 0;
+  //get size info for spacing out the square so there is no overlapping sprites
+  for(int i = 0; i < 9; i++){
+    Coin *coin = [[self hiddenCoins] objectAtIndex:i];
+    largestSpriteHeight = MAX(largestSpriteHeight, coin.spriteBox.size.height);
+    largestSpriteWidth = MAX(largestSpriteWidth, coin.spriteBox.size.width);    
+  }
+  //space it out a little more
+  largestSpriteWidth *= 1.1;
+  largestSpriteHeight *= 1.1;
+  //keep it all onscreen
+  if((startPos.x + 3 * largestSpriteWidth) > _screenSize.width){
+    startPos.x -= largestSpriteWidth;
+  }
+  //draw the square
   int i = 0;
   for(int y=0; y < 3; y++){
-    pos.y = startPos.y + y * 60;
+    pos.y = startPos.y + (y * largestSpriteHeight);
     for(int x=0; x < 3; x++){
       Coin *selectedCoin = [[self hiddenCoins] objectAtIndex:i];
-      pos.x = startPos.x + x * 30;
+      pos.x = startPos.x + (x * largestSpriteWidth);
       selectedCoin.sprite.position = pos;
       [[self visibleCoins] addObject:selectedCoin];
       i++;
     }
   }
   _highestCoin.x = pos.x;
-  _highestCoin.y = pos.y + arc4random_uniform(100) + 10;
+  _highestCoin.y = pos.y + arc4random_uniform(100) + largestSpriteHeight;
   [[self hiddenCoins] removeObjectsInArray:[self visibleCoins]];
 }
 

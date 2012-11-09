@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
+#import "Fuel.h"
+#import "Special.h"
+#import "Coin.h"
 
 @interface Player : CCNode {
   CGPoint _velocity;
@@ -27,4 +31,5 @@
 -(void)setTargetYVelocity:(float)targetVelocity;
 -(float)fuel;
 -(CGRect)spriteBox;
+-(void)didCollectSpecial:(Special*)object;
 @end

@@ -7,10 +7,6 @@
 //
 
 #import "Player.h"
-#import "SimpleAudioEngine.h" 
-#import "Fuel.h"
-#import "Coin.h"
-
 
 @implementation Player
 
@@ -48,10 +44,22 @@
 {
   if([object isKindOfClass:[Coin class]]){
     [self didCollectCoin];
-  }else if([object isKindOfClass:[Fuel class]])
+  }
+  else if([object isKindOfClass:[Fuel class]])
   {
     [self didCollectFuel];
   }
+  else if([object isKindOfClass:[Special class]])
+  {
+    [self didCollectSpecial:object];
+  }
+}
+
+-(void)didCollectSpecial:(Special*)object
+{
+  _score += object._bonusPoints;
+  _fuel += object._bonusFuel;
+  [self setTargetYVelocity:(_targetYVelocity + object._bonusSpeed)];
 }
 
 -(void)didCollectCoin
@@ -114,7 +122,9 @@
 
 -(void)setTargetYVelocity:(float)targetVelocity
 {
+  const float MAX_SPEED = 10.0f; //<<<<<<<<<<<<<<<<<<<<<<<<<<<< MAXIMUM SPEED
   _targetYVelocity = targetVelocity;
+  _targetYVelocity = MIN(_targetYVelocity, MAX_SPEED);
 }
 
 -(void)update:(ccTime)delta
@@ -123,6 +133,7 @@
   if(_targetYVelocity > [self getYVelocity]){
     _velocity.y = MIN(_velocity.y += 0.2, _targetYVelocity);
   }
+  //NSLog(@"velocity = %f", _velocity.y);
 }
 
 -(void)steerArchie

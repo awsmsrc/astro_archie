@@ -174,6 +174,7 @@
 		A3FCE89516382A3800B24844 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FCE89416382A3800B24844 /* Fuel.m */; };
 		A3FCE89716384B4D00B24844 /* fuel_guage.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89616384B4D00B24844 /* fuel_guage.png */; };
 		A3FCE89916384C7000B24844 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89816384C7000B24844 /* game_over.wav */; };
+		B5944326164C51EC005A8CBC /* Special.m in Sources */ = {isa = PBXBuildFile; fileRef = B5944325164C51EC005A8CBC /* Special.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -474,6 +475,8 @@
 		A3FCE89416382A3800B24844 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fuel.m; sourceTree = "<group>"; };
 		A3FCE89616384B4D00B24844 /* fuel_guage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuel_guage.png; path = Resources/fuel_guage.png; sourceTree = "<group>"; };
 		A3FCE89816384C7000B24844 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
+		B5944324164C51EC005A8CBC /* Special.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Special.h; path = "Astro Archie/Special.h"; sourceTree = "<group>"; };
+		B5944325164C51EC005A8CBC /* Special.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Special.m; path = "Astro Archie/Special.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,6 +511,8 @@
 				A3E2015F163407CA00151E0D /* Coin.m */,
 				A3FCE89316382A3800B24844 /* Fuel.h */,
 				A3FCE89416382A3800B24844 /* Fuel.m */,
+				B5944324164C51EC005A8CBC /* Special.h */,
+				B5944325164C51EC005A8CBC /* Special.m */,
 			);
 			name = Models;
 			path = ..;
@@ -1250,6 +1255,7 @@
 				A3FCE8871637454700B24844 /* PauseLayer.m in Sources */,
 				A3FCE8921638222800B24844 /* GameOverScene.m in Sources */,
 				A3FCE89516382A3800B24844 /* Fuel.m in Sources */,
+				B5944326164C51EC005A8CBC /* Special.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
