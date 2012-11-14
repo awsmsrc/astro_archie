@@ -2,7 +2,7 @@
 //  Player.m
 //  Astro Archie
 //
-//  Created by Luke Roberts on 18/10/2012.
+//  Not Created by Luke Roberts on 18/10/2012.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,14 +15,9 @@
 -(id)initWithParentNode:(CCNode *)parentNode
 {
   if(self = [super init]){
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     _fuel = 100;
     _velocity.y = 3;
-    [self setSprite:[CCSprite spriteWithFile:@"archie.png"]];
-    float imageHeight = [_sprite texture].contentSize.height;
-    [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
-    [parentNode addChild:self];
-    [self addChild:[self sprite] z:0 tag:1];
+    [self initSpriteWithParentNode:parentNode];
   }
   return self;
 }
@@ -32,12 +27,45 @@
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
   CCSequence *seq = [CCSequence actions:
                     [CCDelayTime actionWithDuration:1.2],
+                    [CCCallFunc actionWithTarget:self selector:@selector(initJetPack)],
                     [CCCallFunc actionWithTarget:self selector:@selector(takeOffDidBegin)],
                     [CCMoveTo actionWithDuration:0.35 position:ccp(_sprite.position.x, _sprite.position.y + screenSize.height/6)],
                     [CCCallFunc actionWithTarget:self.parent.parent selector:@selector(beginGameplay)],
                     [CCCallFunc actionWithTarget:self selector:@selector(scheduleUpdate)],
                     nil];
   [_sprite runAction:seq];
+}
+
+-(void)initSpriteWithParentNode:(id)parentNode
+{
+  CGSize screenSize = [[CCDirector sharedDirector] winSize];
+  [self setSprite:[CCSprite spriteWithFile:@"archie.png"]];
+  float imageHeight = [_sprite texture].contentSize.height;
+  [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
+  [parentNode addChild:self];
+  [self addChild:[self sprite] z:0 tag:1];
+}
+
+-(void)initJetPack
+{
+  flameEmitterLeft = [CCParticleFire node];
+  flameEmitterLeft.texture = [[CCTextureCache sharedTextureCache] addImage:@"flame.png"];
+  flameEmitterLeft.scale = 0.15;
+  flameEmitterLeft.angle = 270;
+  flameEmitterLeft.totalParticles = 20;
+  flameEmitterLeft.life = 1;
+  flameEmitterLeft.speed = 400;
+  flameEmitterLeft.position = ccp(([self sprite].texture.contentSize.width / 2) - 18, 10);
+  [[self sprite] addChild:flameEmitterLeft z:-1];
+  flameEmitterRight = [CCParticleFire node];
+  flameEmitterRight.texture = [[CCTextureCache sharedTextureCache] addImage:@"flame.png"];
+  flameEmitterRight.scale = 0.15;
+  flameEmitterRight.angle = 270;
+  flameEmitterRight.totalParticles = 20;
+  flameEmitterRight.life = 1;
+  flameEmitterRight.speed = 400;
+  flameEmitterRight.position = ccp(([self sprite].texture.contentSize.width / 2) + 18, 10);
+  [[self sprite] addChild:flameEmitterRight z:-1];
 }
 
 -(void)didCollideWithObject:(id)object
@@ -55,6 +83,22 @@
   }
 }
 
+-(void)collectionEffect
+{
+  CCParticleSystem *emitter = [CCParticleExplosion node];
+  [emitter setEmitterMode:kCCParticleModeRadius];
+  emitter.endRadius = 100;
+  emitter.duration = 0.05f;
+  emitter.life = 0.05f;
+  emitter.position = [self sprite].position;
+  emitter.scale = 0.3f;
+  emitter.totalParticles = 45;
+  emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"particle.png"];
+  [emitter setAutoRemoveOnFinish:YES];
+  [[self parent] addChild: emitter z:-1];
+}
+
+
 -(void)didCollectSpecial:(Special*)object
 {
   _score += object._bonusPoints;
@@ -64,6 +108,7 @@
 
 -(void)didCollectCoin
 {
+  [self collectionEffect];
   _score = _score +100;
 }
 

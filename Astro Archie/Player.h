@@ -18,6 +18,8 @@
   float _targetYVelocity;
   int _score;
   float _fuel;
+  CCParticleSystem  *flameEmitterLeft;
+  CCParticleSystem  *flameEmitterRight;
 }
 @property(nonatomic, retain)CCSprite *sprite;
 -(id)initWithParentNode:(CCNode *)parentNode;
