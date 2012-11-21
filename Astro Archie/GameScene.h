@@ -11,21 +11,21 @@
 #import "MenuScene.h"
 #import "Player.h"
 #import "CollectablesManager.h"
+#import "BackgroundManagerLayer.h"
 
 @interface GameScene : CCLayer {
   CCLayer *gameLayer;
   CCLayer *hudLayer;
   CGSize screenSize;
-  CCLabelTTF *scoreLabel;
   CCSprite *bg;
   BOOL _pauseScreenUp;
   CCMenu *_pauseScreenMenu;
   CCLayer *pauseLayer;
   Player *player;
-  CCProgressTimer* fuelGuage;
 }
 
 @property(nonatomic, retain)CollectablesManager *collectableManager;
+@property(nonatomic, retain)BackgroundManagerLayer *bgManager;
 
 +(id)scene;
 -(void)beginGameplay;

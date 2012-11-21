@@ -148,6 +148,8 @@
 		A3AD59771653FC7200574225 /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AD59741653FC7200574225 /* bg1.png */; };
 		A3AD59781653FC7200574225 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AD59751653FC7200574225 /* bg2.png */; };
 		A3AD59791653FC7200574225 /* bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AD59761653FC7200574225 /* bg3.png */; };
+		A3AD597C1654005400574225 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AD597B1654005400574225 /* HUDLayer.m */; };
+		A3B19D60165D1899006C49FB /* BackgroundManagerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B19D5F165D1899006C49FB /* BackgroundManagerLayer.m */; };
 		A3CEA1191632FA80000BFA37 /* bg_1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1171632FA80000BFA37 /* bg_1_2.png */; };
 		A3CEA11A1632FA80000BFA37 /* bg_1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1181632FA80000BFA37 /* bg_1_1.png */; };
 		A3CEA12B1632FE35000BFA37 /* evil_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA1241632FE35000BFA37 /* evil_music.mp3 */; };
@@ -449,6 +451,10 @@
 		A3AD59741653FC7200574225 /* bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg1.png; path = Resources/bg1.png; sourceTree = "<group>"; };
 		A3AD59751653FC7200574225 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = Resources/bg2.png; sourceTree = "<group>"; };
 		A3AD59761653FC7200574225 /* bg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg3.png; path = Resources/bg3.png; sourceTree = "<group>"; };
+		A3AD597A1654005400574225 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		A3AD597B1654005400574225 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		A3B19D5E165D1899006C49FB /* BackgroundManagerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundManagerLayer.h; sourceTree = "<group>"; };
+		A3B19D5F165D1899006C49FB /* BackgroundManagerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundManagerLayer.m; sourceTree = "<group>"; };
 		A3CEA1171632FA80000BFA37 /* bg_1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_1_2.png; path = Resources/bg_1_2.png; sourceTree = "<group>"; };
 		A3CEA1181632FA80000BFA37 /* bg_1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_1_1.png; path = Resources/bg_1_1.png; sourceTree = "<group>"; };
 		A3CEA1241632FE35000BFA37 /* evil_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = evil_music.mp3; sourceTree = "<group>"; };
@@ -1047,6 +1053,10 @@
 			children = (
 				A3FCE8851637454700B24844 /* PauseLayer.h */,
 				A3FCE8861637454700B24844 /* PauseLayer.m */,
+				A3AD597A1654005400574225 /* HUDLayer.h */,
+				A3AD597B1654005400574225 /* HUDLayer.m */,
+				A3B19D5E165D1899006C49FB /* BackgroundManagerLayer.h */,
+				A3B19D5F165D1899006C49FB /* BackgroundManagerLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1276,6 +1286,8 @@
 				A3FCE8921638222800B24844 /* GameOverScene.m in Sources */,
 				A3FCE89516382A3800B24844 /* Fuel.m in Sources */,
 				B5944326164C51EC005A8CBC /* Special.m in Sources */,
+				A3AD597C1654005400574225 /* HUDLayer.m in Sources */,
+				A3B19D60165D1899006C49FB /* BackgroundManagerLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
