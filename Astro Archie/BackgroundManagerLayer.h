@@ -11,10 +11,12 @@
 
 @interface BackgroundManagerLayer : CCLayer {
   int _bgIndex;
+  float BG1Height, BG2Height;
 }
-@property(nonatomic, retain)CCSprite *currentBG;
-@property(nonatomic, retain)CCSprite *nextBG;
+@property(nonatomic, retain)CCSprite *BG1;
+@property(nonatomic, retain)CCSprite *BG2;
 
 -(id)initWithParentNode:(id)parentNode;
 -(void)increaseAltitudeWithVelocity:(float)velocity;
+-(void)swapBackgroundSprite:(int)BGNo with:(NSString*)filename;
 @end
