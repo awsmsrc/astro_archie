@@ -21,7 +21,7 @@
     [self addChild:_sprite];
     self._bonusFuel = 100;
     self._bonusPoints = 1000;
-    self._bonusSpeed = 2;
+    self._bonusSpeed = 1;
   }
   return self;
 }

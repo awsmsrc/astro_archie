@@ -29,6 +29,7 @@
     [self addChild:self.BG1];
     [self addChild:self.BG2];
     [parentNode addChild:self z:-1];
+    [self addStars];
   }
   return self;
 }
@@ -87,5 +88,50 @@
       NSLog(@"Nothing Swapped!!");
       break;
   }
+}
+
+-(void)addStars{
+  CCParticleSystem *particle=[[[CCParticleSystemQuad alloc] initWithTotalParticles:150] autorelease];
+  ///////**** Assignment Texture Filename!  ****///////
+  CCTexture2D *texture=[[CCTextureCache sharedTextureCache] addImage:@"bg_star_particle.png"];
+  particle.texture=texture;
+  particle.emissionRate=20.00;
+  particle.angle=-90.0;
+  particle.angleVar=5.0;
+  ccBlendFunc blendFunc={GL_SRC_ALPHA,GL_ONE};
+  particle.blendFunc=blendFunc;
+  particle.duration=-1.00;
+  particle.emitterMode=kCCParticleModeGravity;
+  ccColor4F startColor={0.70,0.80,1.00,1.00};
+  particle.startColor=startColor;
+  ccColor4F startColorVar={0.14,0.14,0.14,0.50};
+  particle.startColorVar=startColorVar;
+  ccColor4F endColor={0.70,0.80,1.00,0.00};
+  particle.endColor=endColor;
+  ccColor4F endColorVar={0.42,0.47,0.47,0.43};
+  particle.endColorVar=endColorVar;
+  particle.startSize=10.00;
+  particle.startSizeVar=1.00;
+  particle.endSize=-1.00;
+  particle.endSizeVar=0.00;
+  particle.gravity=ccp(0.00,0.00);
+  particle.radialAccel=0.00;
+  particle.radialAccelVar=0.00;
+  particle.speed= 0;
+  particle.speedVar= 0;
+  particle.tangentialAccel= 0;
+  particle.tangentialAccelVar= 0;
+  particle.totalParticles=150;
+  particle.life=5.00;
+  particle.lifeVar=4.00;
+  particle.startSpin=0.00;
+  particle.startSpinVar=0.00;
+  particle.endSpin=0.00;
+  particle.endSpinVar=0.00;
+  particle.position=ccp(252.00,141.00);
+  particle.posVar=ccp(358.40,415.40);
+  
+  /////*** Assignment PARENT NODE!!!  ***/////
+  [self addChild:particle];
 }
 @end

@@ -45,27 +45,56 @@
   [parentNode addChild:self];
   [self addChild:[self sprite] z:0 tag:1];
 }
-
+-(CCParticleSystem *)flameEffect;{
+  CCParticleSystem *particle=[[[CCParticleSystemQuad alloc] initWithTotalParticles:224] autorelease];
+  ///////**** Assignment Texture Filename!  ****///////
+  CCTexture2D *texture=[[CCTextureCache sharedTextureCache] addImage:@"flame.png"];
+  particle.texture=texture;
+  particle.emissionRate=212.00;
+  particle.angle=0.0;
+  particle.angleVar=360.0;
+  ccBlendFunc blendFunc={GL_ONE_MINUS_DST_COLOR,GL_ONE_MINUS_SRC_ALPHA};
+  particle.blendFunc=blendFunc;
+  particle.duration=-1.00;
+  particle.emitterMode=kCCParticleModeGravity;
+  ccColor4F startColor={0.84,0.74,0.00,0.17};
+  particle.startColor=startColor;
+  ccColor4F startColorVar={0.00,0.00,0.00,0.00};
+  particle.startColorVar=startColorVar;
+  ccColor4F endColor={1.00,0.17,0.01,0.28};
+  particle.endColor=endColor;
+  ccColor4F endColorVar={0.00,0.00,0.00,0.00};
+  particle.endColorVar=endColorVar;
+  particle.startSize=2.37;
+  particle.startSizeVar=10.00;
+  particle.endSize=0.33;
+  particle.endSizeVar=0.00;
+  particle.gravity=ccp(0.00,-500.00);
+  particle.radialAccel=0.00;
+  particle.radialAccelVar=0.00;
+  particle.speed=25;
+  particle.speedVar= 5;
+  particle.tangentialAccel= 0;
+  particle.tangentialAccelVar= 0;
+  particle.totalParticles=224;
+  particle.life=0.90;
+  particle.lifeVar=0.20;
+  particle.startSpin=0.00;
+  particle.startSpinVar=0.00;
+  particle.endSpin=0.00;
+  particle.endSpinVar=0.00;
+  particle.position=ccp(240.00,160.00);
+  particle.posVar=ccp(0.00,0.00);
+  return particle;
+}
 -(void)initJetPack
 {
-  flameEmitterLeft = [CCParticleFire node];
-  flameEmitterLeft.texture = [[CCTextureCache sharedTextureCache] addImage:@"flame.png"];
-  flameEmitterLeft.scale = 0.15;
-  flameEmitterLeft.angle = 270;
-  flameEmitterLeft.totalParticles = 20;
-  flameEmitterLeft.life = 1;
-  flameEmitterLeft.speed = 400;
+  flameEmitterLeft = [self flameEffect];
   flameEmitterLeft.position = ccp(([self sprite].texture.contentSize.width / 2) - 18, 10);
-  [[self sprite] addChild:flameEmitterLeft z:-1];
-  flameEmitterRight = [CCParticleFire node];
-  flameEmitterRight.texture = [[CCTextureCache sharedTextureCache] addImage:@"flame.png"];
-  flameEmitterRight.scale = 0.15;
-  flameEmitterRight.angle = 270;
-  flameEmitterRight.totalParticles = 20;
-  flameEmitterRight.life = 1;
-  flameEmitterRight.speed = 400;
+  flameEmitterRight = [self flameEffect];
   flameEmitterRight.position = ccp(([self sprite].texture.contentSize.width / 2) + 18, 10);
   [[self sprite] addChild:flameEmitterRight z:-1];
+  [[self sprite] addChild:flameEmitterLeft z:-1];
 }
 
 -(void)didCollideWithObject:(id)object
@@ -85,17 +114,46 @@
 
 -(void)collectionEffect
 {
-  CCParticleSystem *emitter = [CCParticleExplosion node];
-  [emitter setEmitterMode:kCCParticleModeRadius];
-  emitter.endRadius = 100;
-  emitter.duration = 0.05f;
-  emitter.life = 0.05f;
-  emitter.position = [self sprite].position;
-  emitter.scale = 0.3f;
-  emitter.totalParticles = 45;
-  emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"particle.png"];
-  [emitter setAutoRemoveOnFinish:YES];
-  [[self parent] addChild: emitter z:-1];
+  CCParticleSystem *particle=[[[CCParticleSystemQuad alloc] initWithTotalParticles:250] autorelease];
+  CCTexture2D *texture=[[CCTextureCache sharedTextureCache] addImage:@"collect.png"];
+  particle.texture=texture;
+  particle.emissionRate=80.00;
+  particle.angle=-90.0;
+  particle.angleVar=5.0;
+  ccBlendFunc blendFunc={GL_SRC_ALPHA,GL_ONE};
+  particle.blendFunc=blendFunc;
+  particle.duration=0.58;
+  particle.emitterMode=kCCParticleModeGravity;
+  ccColor4F startColor={0.70,0.80,1.00,1.00};
+  particle.startColor=startColor;
+  ccColor4F startColorVar={0.14,0.14,0.14,0.50};
+  particle.startColorVar=startColorVar;
+  ccColor4F endColor={1.00,0.90,0.00,0.00};
+  particle.endColor=endColor;
+  ccColor4F endColorVar={0.42,0.47,0.47,0.43};
+  particle.endColorVar=endColorVar;
+  particle.startSize=2.00;
+  particle.startSizeVar=30.00;
+  particle.endSize=-1.00;
+  particle.endSizeVar=0.00;
+  particle.gravity=ccp(0.00,0.00);
+  particle.radialAccel=120.94;
+  particle.radialAccelVar=360.83;
+  particle.speed=109;
+  particle.speedVar=103;
+  particle.tangentialAccel=-12;
+  particle.tangentialAccelVar= 0;
+  particle.totalParticles=150;
+  particle.life=0.60;
+  particle.lifeVar=1.00;
+  particle.startSpin=1464.88;
+  particle.startSpinVar=0.00;
+  particle.endSpin=-1766.62;
+  particle.endSpinVar=0.00;
+  particle.position=[self sprite].position;
+  particle.posVar=ccp(8.00,0.00);
+  [particle setAutoRemoveOnFinish:YES];
+  [[self parent] addChild: particle z:-1];
 }
 
 
@@ -133,7 +191,7 @@
 
 -(void)decrementFuel
 {
-  _fuel = _fuel - ([self getYVelocity]/25);
+  _fuel = _fuel - ([self getYVelocity]/30);
 }
 
 -(int)score
@@ -198,6 +256,7 @@
     _velocity.x = 0;
   }
   _sprite.position = pos;
+  [[self sprite] setRotation:(_velocity.x*2.2f)];
 }
 
 -(CGRect)spriteBox

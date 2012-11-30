@@ -129,7 +129,7 @@
 -(void)increaseAltitude
 {
   [self.bgManager increaseAltitudeWithVelocity:[player getYVelocity]];
-  //[player decrementFuel];
+  [player decrementFuel];
   if([player fuel] < 0){
     [self pushGameOverScene];
   }
