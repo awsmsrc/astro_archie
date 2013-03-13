@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "CollectablesManager.h"
 #import "BackgroundManagerLayer.h"
+#import "SteeringInput.h"
 
 @interface GameScene : CCLayer {
   CCLayer *gameLayer;
@@ -22,6 +23,7 @@
   CCMenu *_pauseScreenMenu;
   CCLayer *pauseLayer;
   Player *player;
+  SteeringInput *_steeringInput;
 }
 
 @property(nonatomic, retain)CollectablesManager *collectableManager;

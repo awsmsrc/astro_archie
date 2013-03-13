@@ -17,7 +17,7 @@
 -(id)initWithParentNode:(id)parentNode
 {
   if(self = [super init]){
-    _bgIndex = 1;
+    _bgIndex = 0;
     self.BG1 = [CCSprite spriteWithFile:@"bg1.png"];
     BG1Height = self.BG1.texture.contentSize.height;
     self.BG1.anchorPoint = ccp(0,0);
@@ -37,18 +37,29 @@
 -(void)increaseAltitudeWithVelocity:(float)velocity
 {
   //change the background position  
-  self.BG1.position = ccp(0, self.BG1.position.y - velocity);
-  self.BG2.position = ccp(0, self.BG2.position.y - velocity);
+  if(_bgIndex < 3)
+   self.BG1.position = ccp(0, self.BG1.position.y - velocity);
+  if(_bgIndex < 2)
+    self.BG2.position = ccp(0, self.BG2.position.y - velocity);
     
   //test to see if either background is offscreen and if so loop it to the top
   if(self.BG1.position.y < -BG1Height){
     self.BG1.position = ccp(0, (self.BG2.position.y + BG2Height));
+    _bgIndex++;
     //NSLog(@"swapped! BG1.y-BG2.y:%f", self.BG1.position.y - self.BG2.position.y);
   }
   else if(self.BG2.position.y < -BG2Height){
     self.BG2.position = ccp(0, (self.BG1.position.y + BG1Height - 1));
     //NSLog(@"swapped! BG2.y-BG1.y:%f", self.BG2.position.y - self.BG1.position.y);
-  }  
+    _bgIndex++;
+  }
+switch(_bgIndex){
+  case 1:
+    [self swapBackgroundSprite:1 with:@"bg3.png"];
+    break;
+  default:
+    break;
+}
 }
 
 -(void)swapBackgroundSprite:(int)BGNo with:(NSString *)filename
@@ -70,8 +81,8 @@
         self.BG1 = [CCSprite spriteWithFile:filename];
         BG1Height = self.BG1.texture.contentSize.height;
         self.BG1.anchorPoint = ccp(0,0);
-        self.BG1.position = ccp(0, (self.BG2.position.y + BG2Height));
-        [self addChild:self.BG1];
+        self.BG1.position = ccp(0, (self.BG2.position.y + BG2Height -2));
+        [self addChild:self.BG1 z:-1];
       }
       break;
     case 2:
@@ -80,8 +91,8 @@
         self.BG2 = [CCSprite spriteWithFile:filename];
         BG2Height = self.BG2.texture.contentSize.height;
         self.BG2.anchorPoint = ccp(0,0);
-        self.BG2.position = ccp(0, (self.BG1.position.y + BG1Height));
-        [self addChild:self.BG2];
+        self.BG2.position = ccp(0, (self.BG1.position.y + BG1Height -2));
+        [self addChild:self.BG2 z:-1];
       }
       break;
     default:
@@ -114,7 +125,7 @@
   particle.startSizeVar=1.00;
   particle.endSize=-1.00;
   particle.endSizeVar=0.00;
-  particle.gravity=ccp(0.00,0.00);
+  particle.gravity=ccp(0.00,-3.00);
   particle.radialAccel=0.00;
   particle.radialAccelVar=0.00;
   particle.speed= 0;

@@ -19,8 +19,6 @@
 		A314E8A1162EF7310060AD87 /* play_off.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E89F162EF7310060AD87 /* play_off.png */; };
 		A314E8A2162EF7310060AD87 /* play_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8A0162EF7310060AD87 /* play_on.png */; };
 		A314E8AF162F010E0060AD87 /* archie.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8AE162F010E0060AD87 /* archie.png */; };
-		A314E8B5163062BF0060AD87 /* archie-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A314E8B3163062BF0060AD87 /* archie-ipad.png */; };
-		A314E8B91630771F0060AD87 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A314E8B81630771F0060AD87 /* Game.m */; };
 		A314E8BC163077330060AD87 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A314E8BB163077330060AD87 /* Player.m */; };
 		A339F7BB164AC5C30089FF09 /* menu_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A339F7BA164AC5C30089FF09 /* menu_bg.png */; };
 		A339F7BE164AC6F70089FF09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A339F7BD164AC6F70089FF09 /* Default@2x.png */; };
@@ -171,6 +169,11 @@
 		A3CEA14816332B4F000BFA37 /* quit.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14416332B4F000BFA37 /* quit.png */; };
 		A3CEA14916332B4F000BFA37 /* resume_pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14516332B4F000BFA37 /* resume_pushed.png */; };
 		A3CEA14A16332B4F000BFA37 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14616332B4F000BFA37 /* resume.png */; };
+		A3D7B44E16E7524B009819D9 /* SteeringInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B44D16E7524B009819D9 /* SteeringInput.m */; };
+		A3D7B45116E75385009819D9 /* FaceInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B45016E75385009819D9 /* FaceInput.m */; };
+		A3D7B45416E7557F009819D9 /* AccellerometerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B45316E7557F009819D9 /* AccellerometerInput.m */; };
+		A3E103A516CBA6B100FA3149 /* settings_off.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E103A316CBA6B100FA3149 /* settings_off.png */; };
+		A3E103A616CBA6B100FA3149 /* settings_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E103A416CBA6B100FA3149 /* settings_on.png */; };
 		A3E20160163407CA00151E0D /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E2015F163407CA00151E0D /* Coin.m */; };
 		A3E20164163455BB00151E0D /* CollectablesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E20163163455BB00151E0D /* CollectablesManager.m */; };
 		A3E201661634584A00151E0D /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E201651634584A00151E0D /* coin.png */; };
@@ -200,9 +203,6 @@
 		A314E89F162EF7310060AD87 /* play_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_off.png; path = Resources/play_off.png; sourceTree = "<group>"; };
 		A314E8A0162EF7310060AD87 /* play_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_on.png; path = Resources/play_on.png; sourceTree = "<group>"; };
 		A314E8AE162F010E0060AD87 /* archie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = archie.png; path = Resources/archie.png; sourceTree = "<group>"; };
-		A314E8B3163062BF0060AD87 /* archie-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archie-ipad.png"; path = "Resources/archie-ipad.png"; sourceTree = "<group>"; };
-		A314E8B71630771F0060AD87 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = "Astro Archie/Game.h"; sourceTree = "<group>"; };
-		A314E8B81630771F0060AD87 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = "Astro Archie/Game.m"; sourceTree = "<group>"; };
 		A314E8BA163077330060AD87 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = "Astro Archie/Player.h"; sourceTree = "<group>"; };
 		A314E8BB163077330060AD87 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = "Astro Archie/Player.m"; sourceTree = "<group>"; };
 		A339F7BA164AC5C30089FF09 /* menu_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_bg.png; path = Resources/menu_bg.png; sourceTree = "<group>"; };
@@ -479,6 +479,14 @@
 		A3CEA14416332B4F000BFA37 /* quit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quit.png; path = Resources/quit.png; sourceTree = "<group>"; };
 		A3CEA14516332B4F000BFA37 /* resume_pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resume_pushed.png; path = Resources/resume_pushed.png; sourceTree = "<group>"; };
 		A3CEA14616332B4F000BFA37 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resume.png; path = Resources/resume.png; sourceTree = "<group>"; };
+		A3D7B44C16E7524B009819D9 /* SteeringInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SteeringInput.h; path = "Astro Archie/SteeringInput.h"; sourceTree = "<group>"; };
+		A3D7B44D16E7524B009819D9 /* SteeringInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SteeringInput.m; path = "Astro Archie/SteeringInput.m"; sourceTree = "<group>"; };
+		A3D7B44F16E75385009819D9 /* FaceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceInput.h; path = "Astro Archie/FaceInput.h"; sourceTree = "<group>"; };
+		A3D7B45016E75385009819D9 /* FaceInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceInput.m; path = "Astro Archie/FaceInput.m"; sourceTree = "<group>"; };
+		A3D7B45216E7557F009819D9 /* AccellerometerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccellerometerInput.h; path = "Astro Archie/AccellerometerInput.h"; sourceTree = "<group>"; };
+		A3D7B45316E7557F009819D9 /* AccellerometerInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccellerometerInput.m; path = "Astro Archie/AccellerometerInput.m"; sourceTree = "<group>"; };
+		A3E103A316CBA6B100FA3149 /* settings_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_off.png; path = Resources/settings_off.png; sourceTree = "<group>"; };
+		A3E103A416CBA6B100FA3149 /* settings_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_on.png; path = Resources/settings_on.png; sourceTree = "<group>"; };
 		A3E2015E163407CA00151E0D /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = "Astro Archie/Coin.h"; sourceTree = "<group>"; };
 		A3E2015F163407CA00151E0D /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coin.m; path = "Astro Archie/Coin.m"; sourceTree = "<group>"; };
 		A3E20162163455BB00151E0D /* CollectablesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectablesManager.h; path = "Astro Archie/CollectablesManager.h"; sourceTree = "<group>"; };
@@ -523,10 +531,14 @@
 		A314E8B6163076AE0060AD87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A3D7B45216E7557F009819D9 /* AccellerometerInput.h */,
+				A3D7B45316E7557F009819D9 /* AccellerometerInput.m */,
+				A3D7B44C16E7524B009819D9 /* SteeringInput.h */,
+				A3D7B44D16E7524B009819D9 /* SteeringInput.m */,
+				A3D7B44F16E75385009819D9 /* FaceInput.h */,
+				A3D7B45016E75385009819D9 /* FaceInput.m */,
 				A3E20162163455BB00151E0D /* CollectablesManager.h */,
 				A3E20163163455BB00151E0D /* CollectablesManager.m */,
-				A314E8B71630771F0060AD87 /* Game.h */,
-				A314E8B81630771F0060AD87 /* Game.m */,
 				A314E8BA163077330060AD87 /* Player.h */,
 				A314E8BB163077330060AD87 /* Player.m */,
 				A3E2015E163407CA00151E0D /* Coin.h */,
@@ -967,6 +979,8 @@
 		A3CEA11E1632FD85000BFA37 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A3E103A316CBA6B100FA3149 /* settings_off.png */,
+				A3E103A416CBA6B100FA3149 /* settings_on.png */,
 				A3FCE89616384B4D00B24844 /* fuel_guage.png */,
 				A3CEA13D16331AB8000BFA37 /* pause_pushed.png */,
 				A3CEA14316332B4F000BFA37 /* quit_pushed.png */,
@@ -994,7 +1008,6 @@
 				A30438E4164ABB9C00308F20 /* starP.png */,
 				A3FCE87E1636F82C00B24844 /* fuel.png */,
 				A3E201651634584A00151E0D /* coin.png */,
-				A314E8B3163062BF0060AD87 /* archie-ipad.png */,
 				A314E8AE162F010E0060AD87 /* archie.png */,
 			);
 			name = "Game Objects";
@@ -1132,7 +1145,6 @@
 				A314E8A1162EF7310060AD87 /* play_off.png in Resources */,
 				A314E8A2162EF7310060AD87 /* play_on.png in Resources */,
 				A314E8AF162F010E0060AD87 /* archie.png in Resources */,
-				A314E8B5163062BF0060AD87 /* archie-ipad.png in Resources */,
 				A3CEA1191632FA80000BFA37 /* bg_1_2.png in Resources */,
 				A3CEA11A1632FA80000BFA37 /* bg_1_1.png in Resources */,
 				A3CEA12B1632FE35000BFA37 /* evil_music.mp3 in Resources */,
@@ -1179,6 +1191,8 @@
 				A3F39A92166661350033950C /* flame.png in Resources */,
 				A3F39A99166788CE0033950C /* collect.png in Resources */,
 				A3753FF31668D509008EBF2A /* bg_star_particle.png in Resources */,
+				A3E103A516CBA6B100FA3149 /* settings_off.png in Resources */,
+				A3E103A616CBA6B100FA3149 /* settings_on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,7 +1304,6 @@
 				A33C67FA162EF2EF0084BC45 /* MenuScene.m in Sources */,
 				A33C67FD162EF3070084BC45 /* IntroScene.m in Sources */,
 				A33C6803162EF35E0084BC45 /* GameScene.m in Sources */,
-				A314E8B91630771F0060AD87 /* Game.m in Sources */,
 				A314E8BC163077330060AD87 /* Player.m in Sources */,
 				A3E20160163407CA00151E0D /* Coin.m in Sources */,
 				A3E20164163455BB00151E0D /* CollectablesManager.m in Sources */,
@@ -1300,6 +1313,9 @@
 				B5944326164C51EC005A8CBC /* Special.m in Sources */,
 				A3AD597C1654005400574225 /* HUDLayer.m in Sources */,
 				A3B19D60165D1899006C49FB /* BackgroundManagerLayer.m in Sources */,
+				A3D7B44E16E7524B009819D9 /* SteeringInput.m in Sources */,
+				A3D7B45116E75385009819D9 /* FaceInput.m in Sources */,
+				A3D7B45416E7557F009819D9 /* AccellerometerInput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

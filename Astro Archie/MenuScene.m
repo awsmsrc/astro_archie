@@ -31,7 +31,11 @@
     CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:@"play_off.png" selectedImage:@"play_on.png"
                                                            target:self
                                                          selector:@selector(startGame)];
-    CCMenu *menu = [CCMenu menuWithItems:playButton, nil];
+    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings_off.png" selectedImage:@"settings_on.png"
+                                                           target:self
+                                                         selector:@selector(startGame)];
+    settingsButton.position = ccp(0, -60);
+    CCMenu *menu = [CCMenu menuWithItems:playButton, settingsButton, nil];
     [self addChild:menu];
     [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"luke loop 1.mp3" loop:YES];
   }

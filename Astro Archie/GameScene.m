@@ -37,16 +37,19 @@
 }
 
 
--(void)beginGameplay{
+-(void)beginGameplay
+{
   [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"luke loop 3.mp3" loop:YES];
   self.isTouchEnabled = YES;
   self.isAccelerometerEnabled = YES;
+  NSLog(@"Steering input called");
+ [self addChild:[[SteeringInput alloc] initForAccelerometerWithDelegate:player]];
+  NSLog(@"Steering input loaded");
   [self scheduleUpdate];
   [self schedule:@selector(increaseSpeed) interval:8];
 }
 
--(void)setUpScene
-{
+-(void)setUpScene{
   [self addBackgroundManager];
   [self addPlayer];
   [self addHUD];
@@ -101,10 +104,8 @@
   current += current/4;
   [player  setTargetYVelocity:current];
   NSLog(@"increasing speed");
-  
   //testing special creation having it create one every time velocity increases, Specials can be added elswhere to better effect
   [[self collectableManager] addSpecial:gameLayer];
-  
 }
 
 
@@ -116,9 +117,9 @@
   [hudLayer updateWithPlayer:(Player *)player];
 }
 
--(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+-(void)deviceDidReturnValue:(float *)value
 {
-  [player applyAcceleration:acceleration];
+  [player applyAcceleration:value];
 }
 
 -(void)buttonPushed
