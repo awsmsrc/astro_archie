@@ -108,7 +108,7 @@
   particle.startSizeVar=1.00;
   particle.endSize=-1.00;
   particle.endSizeVar=0.00;
-  particle.gravity=ccp(0.00,0.00);
+  particle.gravity=ccp(0.00,-3.00);
   particle.radialAccel=0.00;
   particle.radialAccelVar=0.00;
   particle.speed= 0;

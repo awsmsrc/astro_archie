@@ -23,6 +23,7 @@
   CCMenu *_pauseScreenMenu;
   CCLayer *pauseLayer;
   Player *player;
+  SteeringInput *_steeringInput;
 }
 
 @property(nonatomic, retain)CollectablesManager *collectableManager;
