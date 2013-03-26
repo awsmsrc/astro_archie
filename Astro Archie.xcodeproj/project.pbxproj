@@ -169,9 +169,6 @@
 		A3CEA14816332B4F000BFA37 /* quit.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14416332B4F000BFA37 /* quit.png */; };
 		A3CEA14916332B4F000BFA37 /* resume_pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14516332B4F000BFA37 /* resume_pushed.png */; };
 		A3CEA14A16332B4F000BFA37 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA14616332B4F000BFA37 /* resume.png */; };
-		A3D7B44E16E7524B009819D9 /* SteeringInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B44D16E7524B009819D9 /* SteeringInput.m */; };
-		A3D7B45116E75385009819D9 /* FaceInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B45016E75385009819D9 /* FaceInput.m */; };
-		A3D7B45416E7557F009819D9 /* AccellerometerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B45316E7557F009819D9 /* AccellerometerInput.m */; };
 		A3E103A516CBA6B100FA3149 /* settings_off.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E103A316CBA6B100FA3149 /* settings_off.png */; };
 		A3E103A616CBA6B100FA3149 /* settings_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E103A416CBA6B100FA3149 /* settings_on.png */; };
 		A3E20160163407CA00151E0D /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E2015F163407CA00151E0D /* Coin.m */; };
@@ -191,6 +188,9 @@
 		B570DAC616EFB626000427F9 /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC516EFB626000427F9 /* EnemyManager.m */; };
 		B5944326164C51EC005A8CBC /* Special.m in Sources */ = {isa = PBXBuildFile; fileRef = B5944325164C51EC005A8CBC /* Special.m */; };
 		B5CAFF6F17024DB000DA109A /* assetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF6E17024DB000DA109A /* assetManager.m */; };
+		B5CAFF7617026B6300DA109A /* AccellerometerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7117026B6300DA109A /* AccellerometerInput.m */; };
+		B5CAFF7717026B6300DA109A /* FaceInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7317026B6300DA109A /* FaceInput.m */; };
+		B5CAFF7817026B6300DA109A /* SteeringInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7517026B6300DA109A /* SteeringInput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -482,12 +482,6 @@
 		A3CEA14416332B4F000BFA37 /* quit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quit.png; path = Resources/quit.png; sourceTree = "<group>"; };
 		A3CEA14516332B4F000BFA37 /* resume_pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resume_pushed.png; path = Resources/resume_pushed.png; sourceTree = "<group>"; };
 		A3CEA14616332B4F000BFA37 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resume.png; path = Resources/resume.png; sourceTree = "<group>"; };
-		A3D7B44C16E7524B009819D9 /* SteeringInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SteeringInput.h; path = "Astro Archie/SteeringInput.h"; sourceTree = "<group>"; };
-		A3D7B44D16E7524B009819D9 /* SteeringInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SteeringInput.m; path = "Astro Archie/SteeringInput.m"; sourceTree = "<group>"; };
-		A3D7B44F16E75385009819D9 /* FaceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceInput.h; path = "Astro Archie/FaceInput.h"; sourceTree = "<group>"; };
-		A3D7B45016E75385009819D9 /* FaceInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceInput.m; path = "Astro Archie/FaceInput.m"; sourceTree = "<group>"; };
-		A3D7B45216E7557F009819D9 /* AccellerometerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccellerometerInput.h; path = "Astro Archie/AccellerometerInput.h"; sourceTree = "<group>"; };
-		A3D7B45316E7557F009819D9 /* AccellerometerInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccellerometerInput.m; path = "Astro Archie/AccellerometerInput.m"; sourceTree = "<group>"; };
 		A3E103A316CBA6B100FA3149 /* settings_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_off.png; path = Resources/settings_off.png; sourceTree = "<group>"; };
 		A3E103A416CBA6B100FA3149 /* settings_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_on.png; path = Resources/settings_on.png; sourceTree = "<group>"; };
 		A3E2015E163407CA00151E0D /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = "Astro Archie/Coin.h"; sourceTree = "<group>"; };
@@ -516,6 +510,12 @@
 		B5944325164C51EC005A8CBC /* Special.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Special.m; path = "Astro Archie/Special.m"; sourceTree = "<group>"; };
 		B5CAFF6D17024DB000DA109A /* assetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = assetManager.h; path = "Astro Archie/assetManager.h"; sourceTree = "<group>"; };
 		B5CAFF6E17024DB000DA109A /* assetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = assetManager.m; path = "Astro Archie/assetManager.m"; sourceTree = "<group>"; };
+		B5CAFF7017026B6300DA109A /* AccellerometerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccellerometerInput.h; sourceTree = "<group>"; };
+		B5CAFF7117026B6300DA109A /* AccellerometerInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccellerometerInput.m; sourceTree = "<group>"; };
+		B5CAFF7217026B6300DA109A /* FaceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceInput.h; sourceTree = "<group>"; };
+		B5CAFF7317026B6300DA109A /* FaceInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceInput.m; sourceTree = "<group>"; };
+		B5CAFF7417026B6300DA109A /* SteeringInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteeringInput.h; sourceTree = "<group>"; };
+		B5CAFF7517026B6300DA109A /* SteeringInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SteeringInput.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -972,6 +972,12 @@
 			children = (
 				A33C67E5162EEB670084BC45 /* AppDelegate.h */,
 				A33C67E6162EEB670084BC45 /* AppDelegate.m */,
+				B5CAFF7017026B6300DA109A /* AccellerometerInput.h */,
+				B5CAFF7117026B6300DA109A /* AccellerometerInput.m */,
+				B5CAFF7217026B6300DA109A /* FaceInput.h */,
+				B5CAFF7317026B6300DA109A /* FaceInput.m */,
+				B5CAFF7417026B6300DA109A /* SteeringInput.h */,
+				B5CAFF7517026B6300DA109A /* SteeringInput.m */,
 				A33C67EE162EEB670084BC45 /* GameConfig.h */,
 			);
 			name = Application;
@@ -1325,6 +1331,9 @@
 				B570DAC316EF837C000427F9 /* Enemy.m in Sources */,
 				B570DAC616EFB626000427F9 /* EnemyManager.m in Sources */,
 				B5CAFF6F17024DB000DA109A /* assetManager.m in Sources */,
+				B5CAFF7617026B6300DA109A /* AccellerometerInput.m in Sources */,
+				B5CAFF7717026B6300DA109A /* FaceInput.m in Sources */,
+				B5CAFF7817026B6300DA109A /* SteeringInput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
