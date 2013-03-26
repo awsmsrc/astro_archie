@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "CollectablesManager.h"
 #import "BackgroundManagerLayer.h"
+#import "SteeringInput.h"
 #import "EnemyManager.h"
 
 @interface GameScene : CCLayer {
