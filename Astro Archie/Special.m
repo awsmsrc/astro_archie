@@ -15,7 +15,7 @@
 
 -(id)initWithParentNode:(CCNode *)parentNode{
   if((self = [super init])){
-    [self setSprite:[CCSprite spriteWithFile:@"starP.png"]];
+    [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aSpecial]]];
     [self sprite].position = ccp(-100,-100);
     [parentNode  addChild:self];
     [self addChild:_sprite];

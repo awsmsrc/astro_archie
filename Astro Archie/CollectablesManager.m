@@ -61,7 +61,7 @@
 }
 
 
--(void)animateCoins:(int)distance
+-(void)animateCoins:(float)distance
 {
   for(Coin *coin in [self visibleCoins]){
     coin.sprite.position = CGPointMake(coin.sprite.position.x, coin.sprite.position.y - distance);
@@ -122,7 +122,7 @@
     int randNum = arc4random_uniform(10);
     switch (randNum) {
       case 0:
-        //[self drawCircle];
+        //[self drawCircle]; //circle code not working as expected
         //break;
       case 1:
         [self drawSquare];

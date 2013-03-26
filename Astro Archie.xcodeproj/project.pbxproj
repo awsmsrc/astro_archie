@@ -184,7 +184,10 @@
 		A3FCE89516382A3800B24844 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FCE89416382A3800B24844 /* Fuel.m */; };
 		A3FCE89716384B4D00B24844 /* fuel_guage.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89616384B4D00B24844 /* fuel_guage.png */; };
 		A3FCE89916384C7000B24844 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89816384C7000B24844 /* game_over.wav */; };
+		B570DAC316EF837C000427F9 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC216EF837C000427F9 /* Enemy.m */; };
+		B570DAC616EFB626000427F9 /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC516EFB626000427F9 /* EnemyManager.m */; };
 		B5944326164C51EC005A8CBC /* Special.m in Sources */ = {isa = PBXBuildFile; fileRef = B5944325164C51EC005A8CBC /* Special.m */; };
+		B5CAFF6F17024DB000DA109A /* assetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF6E17024DB000DA109A /* assetManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -497,8 +500,14 @@
 		A3FCE89416382A3800B24844 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fuel.m; sourceTree = "<group>"; };
 		A3FCE89616384B4D00B24844 /* fuel_guage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuel_guage.png; path = Resources/fuel_guage.png; sourceTree = "<group>"; };
 		A3FCE89816384C7000B24844 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
+		B570DAC116EF837C000427F9 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = "Astro Archie/Enemy.h"; sourceTree = "<group>"; };
+		B570DAC216EF837C000427F9 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = "Astro Archie/Enemy.m"; sourceTree = "<group>"; };
+		B570DAC416EFB626000427F9 /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyManager.h; path = "Astro Archie/EnemyManager.h"; sourceTree = "<group>"; };
+		B570DAC516EFB626000427F9 /* EnemyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyManager.m; path = "Astro Archie/EnemyManager.m"; sourceTree = "<group>"; };
 		B5944324164C51EC005A8CBC /* Special.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Special.h; path = "Astro Archie/Special.h"; sourceTree = "<group>"; };
 		B5944325164C51EC005A8CBC /* Special.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Special.m; path = "Astro Archie/Special.m"; sourceTree = "<group>"; };
+		B5CAFF6D17024DB000DA109A /* assetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = assetManager.h; path = "Astro Archie/assetManager.h"; sourceTree = "<group>"; };
+		B5CAFF6E17024DB000DA109A /* assetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = assetManager.m; path = "Astro Archie/assetManager.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +532,8 @@
 		A314E8B6163076AE0060AD87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B5CAFF6D17024DB000DA109A /* assetManager.h */,
+				B5CAFF6E17024DB000DA109A /* assetManager.m */,
 				A3E20162163455BB00151E0D /* CollectablesManager.h */,
 				A3E20163163455BB00151E0D /* CollectablesManager.m */,
 				A314E8B71630771F0060AD87 /* Game.h */,
@@ -535,6 +546,10 @@
 				A3FCE89416382A3800B24844 /* Fuel.m */,
 				B5944324164C51EC005A8CBC /* Special.h */,
 				B5944325164C51EC005A8CBC /* Special.m */,
+				B570DAC116EF837C000427F9 /* Enemy.h */,
+				B570DAC216EF837C000427F9 /* Enemy.m */,
+				B570DAC416EFB626000427F9 /* EnemyManager.h */,
+				B570DAC516EFB626000427F9 /* EnemyManager.m */,
 			);
 			name = Models;
 			path = ..;
@@ -1300,6 +1315,9 @@
 				B5944326164C51EC005A8CBC /* Special.m in Sources */,
 				A3AD597C1654005400574225 /* HUDLayer.m in Sources */,
 				A3B19D60165D1899006C49FB /* BackgroundManagerLayer.m in Sources */,
+				B570DAC316EF837C000427F9 /* Enemy.m in Sources */,
+				B570DAC616EFB626000427F9 /* EnemyManager.m in Sources */,
+				B5CAFF6F17024DB000DA109A /* assetManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

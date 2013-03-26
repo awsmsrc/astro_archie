@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "CollectablesManager.h"
 #import "BackgroundManagerLayer.h"
+#import "EnemyManager.h"
 
 @interface GameScene : CCLayer {
   CCLayer *gameLayer;
@@ -26,6 +27,7 @@
 
 @property(nonatomic, retain)CollectablesManager *collectableManager;
 @property(nonatomic, retain)BackgroundManagerLayer *bgManager;
+@property(nonatomic, retain)EnemyManager *enemyManager;
 
 +(id)scene;
 -(void)beginGameplay;

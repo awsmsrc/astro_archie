@@ -11,10 +11,12 @@
 @implementation Player
 
 @synthesize sprite = _sprite;
+@synthesize height = _height;
 
 -(id)initWithParentNode:(CCNode *)parentNode
 {
   if(self = [super init]){
+    self.height = 0.0f;
     _fuel = 100;
     _velocity.y = 3;
     [self initSpriteWithParentNode:parentNode];
@@ -39,7 +41,7 @@
 -(void)initSpriteWithParentNode:(id)parentNode
 {
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
-  [self setSprite:[CCSprite spriteWithFile:@"archie.png"]];
+  [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aArchie]]];
   float imageHeight = [_sprite texture].contentSize.height;
   [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
   [parentNode addChild:self];
@@ -110,6 +112,11 @@
   {
     [self didCollectSpecial:object];
   }
+  else if([object isKindOfClass:[Enemy class]])
+  {
+    _fuel = -1000.0f;
+  }
+
 }
 
 -(void)collectionEffect
@@ -266,6 +273,15 @@
                 [self.sprite texture].contentSize.width, [self.sprite texture].contentSize.height);
   return rect;
 }
+
+-(void)increaseHeight
+{
+  //each background is 4000 pixels high so x 12.5 to get 50,000 (ie 50km) per background.
+  //this conversion with 2 backgrounds gives 100km before space.
+  //100km is the Karman Line, the recognised start of space! :)
+  _height += _velocity.y * 12.5f;
+}
+
 
 
 -(void)dealloc

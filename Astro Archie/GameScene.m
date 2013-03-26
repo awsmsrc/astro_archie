@@ -16,6 +16,7 @@
 @implementation GameScene
 @synthesize collectableManager = _coinManager;
 @synthesize bgManager = _bgManager;
+@synthesize enemyManager = _enemyManager;
 
 +(id)scene
 {
@@ -56,6 +57,7 @@
 {
   self.bgManager = [[BackgroundManagerLayer alloc] initWithParentNode:gameLayer];
   [self setCollectableManager:[[CollectablesManager alloc] initWithParentNode:gameLayer]];
+  [self.enemyManager = [EnemyManager alloc] initWithParentNode:gameLayer];
 }
 
 -(void)addPlayer
@@ -111,8 +113,12 @@
 -(void)update:(ccTime)delta
 {
   [self increaseAltitude];
+  //update stars and fuel
   [[self collectableManager] populateObjects];
   [[self collectableManager] handleCollisionsWith:player];
+  //update enemies
+  [[self enemyManager] updateEnemiesInScene:gameLayer with:player];
+  //update HUD
   [hudLayer updateWithPlayer:(Player *)player];
 }
 
@@ -130,10 +136,12 @@
 {
   [self.bgManager increaseAltitudeWithVelocity:[player getYVelocity]];
   [player decrementFuel];
+  [player increaseHeight];
+  [[self collectableManager] animateCoins:[player getYVelocity]];
+  [[self enemyManager] animateEnemy:[player getYVelocity]];
   if([player fuel] < 0){
     [self pushGameOverScene];
   }
-  [[self collectableManager] animateCoins:[player getYVelocity]];
 }
 
 -(void)dealloc

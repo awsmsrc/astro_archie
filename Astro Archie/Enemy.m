@@ -1,31 +1,30 @@
 //
-//  Coin.m
+//  Enemy.m
 //  Astro Archie
 //
-//  Created by Luke Roberts on 21/10/2012.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//  Created by Ben Waxman on 12/03/2013.
+//
 //
 
-#import "Coin.h"
+#import "Enemy.h"
 
-
-@implementation Coin
+@implementation Enemy
 
 @synthesize sprite = _sprite;
 
 -(id)initWithParentNode:(CCNode *)parentNode{
   if((self = [super init])){
-    [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aCoin]]];
-    [self sprite].position = ccp(160,300);
+    [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aUfo]]];
+    [self sprite].position = ccp(-100,-100);
     [parentNode  addChild:self];
     [self addChild:_sprite];
   }
   return self;
 }
 
-+(id)coinWithParentNode:(id)parentNode
++(id)enemyWithParentNode:(id)parentNode
 {
-  return [[[Coin alloc] initWithParentNode:parentNode] autorelease];
+  return [[[Enemy alloc] initWithParentNode:parentNode] autorelease];
 }
 
 -(CGRect)spriteBox
@@ -35,12 +34,16 @@
                     [[self sprite] texture].contentSize.width, [[self sprite] texture].contentSize.height);
 }
 
+-(void)moveEnemy:(float)playerVelocity
+{
+  
+}
+
 -(void)dealloc
 {
   [super dealloc];
   [_sprite removeFromParentAndCleanup:YES];
   [[self sprite] release];
-
+  
 }
-
 @end

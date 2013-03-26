@@ -21,7 +21,7 @@
 
 -(id)initWithParentNode:(id)parentNode;
 -(void)handleCollisionsWith:(Player *)player;
--(void)animateCoins:(int)distance;
+-(void)animateCoins:(float)distance;
 -(void)populateObjects;
 -(void)drawRandomLine;
 -(void)drawSquare;

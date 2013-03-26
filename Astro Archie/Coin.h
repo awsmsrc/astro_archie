@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "assetManager.h"
 
 @interface Coin : CCNode {
 }
