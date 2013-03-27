@@ -191,6 +191,9 @@
 		B5CAFF7617026B6300DA109A /* AccellerometerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7117026B6300DA109A /* AccellerometerInput.m */; };
 		B5CAFF7717026B6300DA109A /* FaceInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7317026B6300DA109A /* FaceInput.m */; };
 		B5CAFF7817026B6300DA109A /* SteeringInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7517026B6300DA109A /* SteeringInput.m */; };
+		B5E7573A17034F1400556C15 /* EnemyUfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E7573917034F1400556C15 /* EnemyUfo.m */; };
+		B5E7573D17034F2F00556C15 /* EnemyMeteor.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E7573C17034F2F00556C15 /* EnemyMeteor.m */; };
+		B5E757401703721900556C15 /* EnemyPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E7573F1703721800556C15 /* EnemyPlane.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -516,6 +519,12 @@
 		B5CAFF7317026B6300DA109A /* FaceInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceInput.m; sourceTree = "<group>"; };
 		B5CAFF7417026B6300DA109A /* SteeringInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteeringInput.h; sourceTree = "<group>"; };
 		B5CAFF7517026B6300DA109A /* SteeringInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SteeringInput.m; sourceTree = "<group>"; };
+		B5E7573817034F1400556C15 /* EnemyUfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyUfo.h; path = "Astro Archie/EnemyUfo.h"; sourceTree = "<group>"; };
+		B5E7573917034F1400556C15 /* EnemyUfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyUfo.m; path = "Astro Archie/EnemyUfo.m"; sourceTree = "<group>"; };
+		B5E7573B17034F2F00556C15 /* EnemyMeteor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyMeteor.h; path = "Astro Archie/EnemyMeteor.h"; sourceTree = "<group>"; };
+		B5E7573C17034F2F00556C15 /* EnemyMeteor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyMeteor.m; path = "Astro Archie/EnemyMeteor.m"; sourceTree = "<group>"; };
+		B5E7573E1703721800556C15 /* EnemyPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyPlane.h; path = "Astro Archie/EnemyPlane.h"; sourceTree = "<group>"; };
+		B5E7573F1703721800556C15 /* EnemyPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyPlane.m; path = "Astro Archie/EnemyPlane.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +565,12 @@
 				B570DAC216EF837C000427F9 /* Enemy.m */,
 				B570DAC416EFB626000427F9 /* EnemyManager.h */,
 				B570DAC516EFB626000427F9 /* EnemyManager.m */,
+				B5E7573817034F1400556C15 /* EnemyUfo.h */,
+				B5E7573917034F1400556C15 /* EnemyUfo.m */,
+				B5E7573B17034F2F00556C15 /* EnemyMeteor.h */,
+				B5E7573C17034F2F00556C15 /* EnemyMeteor.m */,
+				B5E7573E1703721800556C15 /* EnemyPlane.h */,
+				B5E7573F1703721800556C15 /* EnemyPlane.m */,
 			);
 			name = Models;
 			path = ..;
@@ -1334,6 +1349,9 @@
 				B5CAFF7617026B6300DA109A /* AccellerometerInput.m in Sources */,
 				B5CAFF7717026B6300DA109A /* FaceInput.m in Sources */,
 				B5CAFF7817026B6300DA109A /* SteeringInput.m in Sources */,
+				B5E7573A17034F1400556C15 /* EnemyUfo.m in Sources */,
+				B5E7573D17034F2F00556C15 /* EnemyMeteor.m in Sources */,
+				B5E757401703721900556C15 /* EnemyPlane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

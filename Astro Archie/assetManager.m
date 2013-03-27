@@ -34,13 +34,13 @@
       filepath = @"starP.png";
       break;
     case aUfo:
-      filepath = @"coin.png"; //tempary placeholder sprite
+      filepath = @"coin.png"; //tempary placeholder sprites for enemies
       break;
     case aMeteor:
       filepath = @"coin.png";
       break;
     case aPlane:
-      filepath = @"coin.png";
+      filepath = @"fuel.png";
       break;
     case aBackground1:
       filepath = @"bg1.png";

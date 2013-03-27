@@ -9,7 +9,6 @@
 #import "CollectablesManager.h"
 #import "Coin.h"
 #import "Fuel.h"
-#import "SimpleAudioEngine.h"
 
 @implementation CollectablesManager
 
@@ -92,7 +91,6 @@
     if(CGRectIntersectsRect([player spriteBox], [selectedCoin spriteBox])){
       
       [player didCollideWithObject:selectedCoin];
-      [[SimpleAudioEngine sharedEngine] playEffect:@"coin_collect.mp3"];
       selectedCoin.sprite.position = CGPointMake(-100, -100);
       
       if([selectedCoin isKindOfClass:[Special class]]){

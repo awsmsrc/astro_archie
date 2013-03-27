@@ -102,18 +102,22 @@
 -(void)didCollideWithObject:(id)object
 {
   if([object isKindOfClass:[Coin class]]){
+    [[SimpleAudioEngine sharedEngine] playEffect:@"coin_collect.mp3"];
     [self didCollectCoin];
   }
   else if([object isKindOfClass:[Fuel class]])
   {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button_pushed.wav"];
     [self didCollectFuel];
   }
   else if([object isKindOfClass:[Special class]])
   {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"coin_collect.mp3"];
     [self didCollectSpecial:object];
   }
   else if([object isKindOfClass:[Enemy class]])
   {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion with Metal Debris.wav"];
     _fuel = -1000.0f;
   }
 
@@ -276,10 +280,10 @@
 
 -(void)increaseHeight
 {
-  //each background is 4000 pixels high so x 12.5 to get 50,000 (ie 50km) per background.
-  //this conversion with 2 backgrounds gives 100km before space.
+  //each background is 4000 pixels high so x 10 to get 40,000 (ie 40km) per background.
+  //this conversion with 3 backgrounds gives 120km before space.
   //100km is the Karman Line, the recognised start of space! :)
-  _height += _velocity.y * 12.5f;
+  _height += _velocity.y * 10.0f;
 }
 
 

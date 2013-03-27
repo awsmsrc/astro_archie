@@ -17,7 +17,7 @@
     [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aUfo]]];
     [self sprite].position = ccp(-100,-100);
     [parentNode  addChild:self];
-    [self addChild:_sprite];
+    [self addChild:self.sprite];
   }
   return self;
 }
@@ -43,7 +43,7 @@
 {
   [super dealloc];
   [_sprite removeFromParentAndCleanup:YES];
-  [[self sprite] release];
+  //[[self sprite] release];
   
 }
 @end

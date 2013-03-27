@@ -139,7 +139,6 @@
   [player decrementFuel];
   [player increaseHeight];
   [[self collectableManager] animateCoins:[player getYVelocity]];
-  [[self enemyManager] animateEnemy:[player getYVelocity]];
   if([player fuel] < 0){
     [self pushGameOverScene];
   }

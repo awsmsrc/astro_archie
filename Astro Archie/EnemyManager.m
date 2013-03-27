@@ -15,9 +15,8 @@
 -(id)initWithParentNode:(id)parentNode{
   if(self = [super init]){
     [parentNode addChild:self];
-    _screenSize = [[CCDirector sharedDirector] winSize];
     _heightSinceLastEnemy = 0.0f;
-    _currentEnemy = NULL;
+    _currentEnemy = nil;
     _active = false;
   }
   return self;
@@ -26,43 +25,46 @@
 -(void)updateEnemiesInScene:(id)parentNode with:(Player *)player
 {
   [self addEnemy:parentNode with:player];
-  [self animateEnemy:player.getYVelocity];
+  [self animateEnemy:player];
   [self handleCollisionsWith:player];
 }
 
 -(void)handleCollisionsWith:(Player *)player
 {
-    if([self currentEnemy] != NULL)
+    if([self currentEnemy] != nil)
     {
       if(CGRectIntersectsRect([player spriteBox], [[self currentEnemy]spriteBox])){
         [player didCollideWithObject:[self currentEnemy]];
         _active = false;
+        _heightSinceLastEnemy = player.height;
+        [[self currentEnemy] removeFromParentAndCleanup:YES];
+        self.currentEnemy = nil;
       }
     }
 }
--(void)animateEnemy:(float)playerVelocity
+-(void)animateEnemy:(Player *)player
 {
-  if([self currentEnemy ] != NULL){
-    [[self currentEnemy ] moveEnemy:playerVelocity];
+  if([self currentEnemy ] != nil){
+    [[self currentEnemy ] moveEnemy:[player getYVelocity]];
     //if goes off the bottom of the screen
     if([self currentEnemy ].sprite.position.y < -100){
       _active = false;
+      _heightSinceLastEnemy = player.height;
       [[self currentEnemy] removeFromParentAndCleanup:YES];
-      [[self currentEnemy] release];
+      self.currentEnemy = nil;
     }
   }
 }
 -(void)addEnemy:(id)parentNode with:(Player *)player
 {
   float spawnDistance = 10000.0f;
-  float lowEnemyThreshold = 25000.0f;  
+  float lowEnemyThreshold = 40000.0f;
   float height = player.height;
   
     if( (height - _heightSinceLastEnemy) > spawnDistance && !_active )
   {
     int ID = -1;
-    _heightSinceLastEnemy = height;
-    //_active = true; <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<uncomment when enemy classess added
+    _active = true;
     //choose which enemy to spawn based on height
     if(height < lowEnemyThreshold )
       ID = 0;
@@ -72,13 +74,13 @@
     NSLog(@"spawned enemy type %i at height: %.2f",ID, height);
     switch (ID) {
       case 0:
-        //currentEnemy = new low enemy (below threshold only)
+        self.currentEnemy = [[[EnemyPlane alloc] initWithParentNode:parentNode] autorelease];
         break;
       case 1:
-        //currentEnemy = new mid enemy (only above threshold)
+        self.currentEnemy = [[[EnemyMeteor alloc] initWithParentNode:parentNode] autorelease];
         break;
       case 2:
-        //currentEnemy = new high enemy (only above threshold)
+        self.currentEnemy = [[[EnemyUfo alloc] initWithParentNode:parentNode] autorelease];
         break;
       default:
         break;
@@ -90,7 +92,7 @@
 {
   [super dealloc];
   [[self currentEnemy] removeFromParentAndCleanup:YES];
-  [[self currentEnemy] release];  
+  //[[self currentEnemy] release];
 }
 
 @end

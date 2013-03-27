@@ -42,7 +42,7 @@
 {
   [super dealloc];
   [_sprite removeFromParentAndCleanup:YES];
-  [[self sprite] release];
+  //[[self sprite] release];
   
 }
 

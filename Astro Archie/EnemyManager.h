@@ -9,11 +9,13 @@
 #import "CCNode.h"
 #import "Player.h"
 #import "Enemy.h"
+#import "EnemyMeteor.h"
+#import "EnemyUfo.h"
+#import "EnemyPlane.h"
 
 @interface EnemyManager : CCNode
 {
   float   _heightSinceLastEnemy;
-  CGSize  _screenSize;
   bool    _active;
 }
 
@@ -22,7 +24,7 @@
 -(id)initWithParentNode:(id)parentNode;
 -(void)updateEnemiesInScene:(id)parentNode with:(Player *)player;
 -(void)handleCollisionsWith:(Player *)player;
--(void)animateEnemy:(float)playerVelocity;
+-(void)animateEnemy:(Player *)player;
 -(void)addEnemy:(id)parentNode with:(Player *)player;
 
 @end
