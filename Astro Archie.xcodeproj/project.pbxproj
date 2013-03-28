@@ -187,6 +187,9 @@
 		B570DAC316EF837C000427F9 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC216EF837C000427F9 /* Enemy.m */; };
 		B570DAC616EFB626000427F9 /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC516EFB626000427F9 /* EnemyManager.m */; };
 		B5944326164C51EC005A8CBC /* Special.m in Sources */ = {isa = PBXBuildFile; fileRef = B5944325164C51EC005A8CBC /* Special.m */; };
+		B5C15A1917049AE100F7F957 /* asteroid.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C15A1617049AE000F7F957 /* asteroid.png */; };
+		B5C15A1A17049AE100F7F957 /* birdtest2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C15A1717049AE000F7F957 /* birdtest2.png */; };
+		B5C15A1B17049AE100F7F957 /* ufo.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C15A1817049AE100F7F957 /* ufo.png */; };
 		B5CAFF6F17024DB000DA109A /* assetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF6E17024DB000DA109A /* assetManager.m */; };
 		B5CAFF7617026B6300DA109A /* AccellerometerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7117026B6300DA109A /* AccellerometerInput.m */; };
 		B5CAFF7717026B6300DA109A /* FaceInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CAFF7317026B6300DA109A /* FaceInput.m */; };
@@ -511,6 +514,9 @@
 		B570DAC516EFB626000427F9 /* EnemyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyManager.m; path = "Astro Archie/EnemyManager.m"; sourceTree = "<group>"; };
 		B5944324164C51EC005A8CBC /* Special.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Special.h; path = "Astro Archie/Special.h"; sourceTree = "<group>"; };
 		B5944325164C51EC005A8CBC /* Special.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Special.m; path = "Astro Archie/Special.m"; sourceTree = "<group>"; };
+		B5C15A1617049AE000F7F957 /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asteroid.png; path = Resources/asteroid.png; sourceTree = "<group>"; };
+		B5C15A1717049AE000F7F957 /* birdtest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = birdtest2.png; path = Resources/birdtest2.png; sourceTree = "<group>"; };
+		B5C15A1817049AE100F7F957 /* ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ufo.png; path = Resources/ufo.png; sourceTree = "<group>"; };
 		B5CAFF6D17024DB000DA109A /* assetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = assetManager.h; path = "Astro Archie/assetManager.h"; sourceTree = "<group>"; };
 		B5CAFF6E17024DB000DA109A /* assetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = assetManager.m; path = "Astro Archie/assetManager.m"; sourceTree = "<group>"; };
 		B5CAFF7017026B6300DA109A /* AccellerometerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccellerometerInput.h; sourceTree = "<group>"; };
@@ -1029,6 +1035,9 @@
 		A3CEA11F1632FD95000BFA37 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				B5C15A1617049AE000F7F957 /* asteroid.png */,
+				B5C15A1717049AE000F7F957 /* birdtest2.png */,
+				B5C15A1817049AE100F7F957 /* ufo.png */,
 				A3753FF21668D509008EBF2A /* bg_star_particle.png */,
 				A3F39A98166788CE0033950C /* collect.png */,
 				A3AD596F1653E02900574225 /* particle.png */,
@@ -1223,6 +1232,9 @@
 				A3753FF31668D509008EBF2A /* bg_star_particle.png in Resources */,
 				A3E103A516CBA6B100FA3149 /* settings_off.png in Resources */,
 				A3E103A616CBA6B100FA3149 /* settings_on.png in Resources */,
+				B5C15A1917049AE100F7F957 /* asteroid.png in Resources */,
+				B5C15A1A17049AE100F7F957 /* birdtest2.png in Resources */,
+				B5C15A1B17049AE100F7F957 /* ufo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

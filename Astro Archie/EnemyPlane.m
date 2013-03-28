@@ -15,6 +15,9 @@
     [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aPlane]]];
     _screenSize = [[CCDirector sharedDirector] winSize];
     _planeXVelocity = _screenSize.width/120;
+    //only change the scale if sprite is facing to the left to make it face right.
+    self.sprite.scaleX = -1;
+    ////////////////////////////////////////////////////////////////////////
     [self sprite].position = ccp(0.0f, _screenSize.height+50);
     [parentNode  addChild:self];
     [self addChild:self.sprite];
@@ -28,12 +31,12 @@
   //test for right side of screen, reverse x speed and turn the plane
   if(self.sprite.position.x > _screenSize.width + self.spriteBox.size.width){
     _planeXVelocity *= -1;
-    self.sprite.scaleX = -1;
+    self.sprite.scaleX = 1;
   }
   //test for left side of screen,  reverse x speed and turn the plane
   else if (self.sprite.position.x < -self.spriteBox.size.width){
     _planeXVelocity *= -1;
-    self.sprite.scaleX = 1;
+    self.sprite.scaleX = -1;
   }
     
 }
