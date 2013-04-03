@@ -6,8 +6,21 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "cocos2d.h"
+#import <AVFoundation/AVFoundation.h>
+#import <CoreImage/CoreImage.h>
 
-@interface FaceInput : NSObject
+@interface FaceInput : CCLayer <AVCaptureVideoDataOutputSampleBufferDelegate>{
+  id _delegate;
+}
+
+@property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
+@property (nonatomic) dispatch_queue_t videoDataOutputQueue;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
+@property (nonatomic, strong) UIImage *borderImage;
+@property (nonatomic, strong) CIDetector *faceDetector;
+
++(id)initWithDelegate:(id)delegate;
 
 @end

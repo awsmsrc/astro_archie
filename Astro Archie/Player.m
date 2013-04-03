@@ -216,12 +216,13 @@
   [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion with Metal Debris.wav"];
 }
 
--(void)applyAcceleration:(UIAcceleration *)acceleration
+-(void)applyAcceleration:(NSNumber *)acceleration
 {
+  float acc = [acceleration floatValue];
   float deceleration = 0.2f;
   float sensitivity = 8.0f;
   float maxVelocity = 80;
-  _velocity.x = _velocity.x * deceleration + acceleration.x * sensitivity;
+  _velocity.x = _velocity.x * deceleration + acc * sensitivity;
   if(_velocity.x > maxVelocity){
     _velocity.x = maxVelocity;
   }else if(_velocity.x < - maxVelocity){
