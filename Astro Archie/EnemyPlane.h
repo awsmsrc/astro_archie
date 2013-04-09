@@ -11,6 +11,7 @@
 @interface EnemyPlane : Enemy{
   float _planeXVelocity;
   CGSize _screenSize;
+  float _SpeedOveride;
 }
 
 @end

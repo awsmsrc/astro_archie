@@ -186,6 +186,7 @@
 		A3FCE89916384C7000B24844 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE89816384C7000B24844 /* game_over.wav */; };
 		B570DAC316EF837C000427F9 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC216EF837C000427F9 /* Enemy.m */; };
 		B570DAC616EFB626000427F9 /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B570DAC516EFB626000427F9 /* EnemyManager.m */; };
+		B5886E0D170C68FD0022481D /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B5886E0C170C68FD0022481D /* SettingsLayer.m */; };
 		B5944326164C51EC005A8CBC /* Special.m in Sources */ = {isa = PBXBuildFile; fileRef = B5944325164C51EC005A8CBC /* Special.m */; };
 		B5C15A1917049AE100F7F957 /* asteroid.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C15A1617049AE000F7F957 /* asteroid.png */; };
 		B5C15A1A17049AE100F7F957 /* birdtest2.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C15A1717049AE000F7F957 /* birdtest2.png */; };
@@ -512,6 +513,8 @@
 		B570DAC216EF837C000427F9 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = "Astro Archie/Enemy.m"; sourceTree = "<group>"; };
 		B570DAC416EFB626000427F9 /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyManager.h; path = "Astro Archie/EnemyManager.h"; sourceTree = "<group>"; };
 		B570DAC516EFB626000427F9 /* EnemyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyManager.m; path = "Astro Archie/EnemyManager.m"; sourceTree = "<group>"; };
+		B5886E0B170C68FD0022481D /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
+		B5886E0C170C68FD0022481D /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		B5944324164C51EC005A8CBC /* Special.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Special.h; path = "Astro Archie/Special.h"; sourceTree = "<group>"; };
 		B5944325164C51EC005A8CBC /* Special.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Special.m; path = "Astro Archie/Special.m"; sourceTree = "<group>"; };
 		B5C15A1617049AE000F7F957 /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asteroid.png; path = Resources/asteroid.png; sourceTree = "<group>"; };
@@ -1118,6 +1121,8 @@
 				A3AD597B1654005400574225 /* HUDLayer.m */,
 				A3B19D5E165D1899006C49FB /* BackgroundManagerLayer.h */,
 				A3B19D5F165D1899006C49FB /* BackgroundManagerLayer.m */,
+				B5886E0B170C68FD0022481D /* SettingsLayer.h */,
+				B5886E0C170C68FD0022481D /* SettingsLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1364,6 +1369,7 @@
 				B5E7573A17034F1400556C15 /* EnemyUfo.m in Sources */,
 				B5E7573D17034F2F00556C15 /* EnemyMeteor.m in Sources */,
 				B5E757401703721900556C15 /* EnemyPlane.m in Sources */,
+				B5886E0D170C68FD0022481D /* SettingsLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

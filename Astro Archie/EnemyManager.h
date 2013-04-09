@@ -16,6 +16,7 @@
 @interface EnemyManager : CCNode
 {
   float   _heightSinceLastEnemy;
+  float   _randomDistanceVariance;
   bool    _active;
 }
 

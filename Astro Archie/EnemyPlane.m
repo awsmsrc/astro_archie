@@ -14,7 +14,8 @@
   if((self = [super init])){
     [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aPlane]]];
     _screenSize = [[CCDirector sharedDirector] winSize];
-    _planeXVelocity = _screenSize.width/120;
+    _SpeedOveride = [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];
+    _planeXVelocity = _SpeedOveride * (_screenSize.width/120);
     //only change the scale if sprite is facing to the left to make it face right.
     self.sprite.scaleX = -1;
     ////////////////////////////////////////////////////////////////////////

@@ -47,7 +47,8 @@
  [self addChild:[[SteeringInput alloc] initForAccelerometerWithDelegate:player]];
   NSLog(@"Steering input loaded");
   [self scheduleUpdate];
-  [self schedule:@selector(increaseSpeed) interval:8];
+  float intervalAdjust = 1 / [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];
+  [self schedule:@selector(increaseSpeed) interval:(8 * intervalAdjust)];
 }
 
 -(void)setUpScene{
@@ -90,7 +91,7 @@
   [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
   [[SimpleAudioEngine  sharedEngine] playEffect:@"game_over.wav"];
 
-  GameOverScene * gos = [[GameOverScene alloc] initWithScore:[player score]];
+  GameOverScene * gos = [[GameOverScene alloc] initWithScore:[player score] andHeight: [player height]];
   [self unscheduleAllSelectors];
   [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gos]];
 }

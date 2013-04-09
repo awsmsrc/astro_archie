@@ -18,6 +18,7 @@
 @interface Player : CCNode {
   CGPoint _velocity;
   float _targetYVelocity;
+  float _SpeedOveride;
   int _score;
   float _fuel;
   CCParticleSystem  *flameEmitterLeft;

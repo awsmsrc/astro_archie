@@ -12,6 +12,6 @@
 @interface GameOverScene : CCLayer {
 }
 
--(id)initWithScore:(int)score;
+-(id)initWithScore:(int)score andHeight:(float)height;
 
 @end

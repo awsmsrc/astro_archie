@@ -13,6 +13,7 @@
 
 @implementation MenuScene
 
+@synthesize menuEnabled = _menuEnabled;
 +(id)scene
 {
   CCScene *scene =  [CCScene node];
@@ -23,6 +24,17 @@
 
 -(id)init
 {
+  self.menuEnabled = YES;
+  //register user default settings
+  NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"Tilt", @"Control",
+                                  [NSNumber numberWithFloat:1.0f], @"SpeedOveride",
+                                  [NSNumber numberWithBool:NO], @"HighVisibilty",
+                                  [NSNumber numberWithInt:0], @"HighScore",
+                                  [NSNumber numberWithFloat:0.0f], @"HighestDistance",
+                                  nil];
+  [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+  
   if((self = [super init])){
     CCSprite *bg = [CCSprite spriteWithFile:@"menu_bg.png"];
     bg.anchorPoint = ccp(0,0);
@@ -33,7 +45,7 @@
                                                          selector:@selector(startGame)];
     CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings_off.png" selectedImage:@"settings_on.png"
                                                            target:self
-                                                         selector:@selector(startGame)];
+                                                         selector:@selector(settingsScreen)];
     settingsButton.position = ccp(0, -60);
     CCMenu *menu = [CCMenu menuWithItems:playButton, settingsButton, nil];
     [self addChild:menu];
@@ -44,10 +56,25 @@
 
 -(void)startGame
 {
-  [[SimpleAudioEngine sharedEngine] playEffect:@"button_pushed.wav"];
-  [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
-  GameScene * gs = [GameScene node];
-  [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gs]];
+  if(self.menuEnabled){
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button_pushed.wav"];
+    [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
+    GameScene * gs = [GameScene node];
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gs]];
+  }
+}
+
+-(void)settingsScreen{
+  if(self.menuEnabled){
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button_pushed.wav"];
+    [SettingsLayer settingsLayerWithParentNode:self];
+    self.isTouchEnabled = NO;
+    self.menuEnabled = NO;
+  }  
+}
+
+-(void)enableMenu{
+  self.menuEnabled = YES;
 }
 
 @end

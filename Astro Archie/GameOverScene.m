@@ -44,15 +44,58 @@
   return self;
 }
 
--(id)initWithScore:(int)score
+-(id)initWithScore:(int)score andHeight:(float)height
 {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
   id node = [self.class node];
-  CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"YOUR SCORE: %i", score]
-                                              fontName:@"Arial"
-                                              fontSize:22];
-  scoreLabel.position = ccp(screenSize.width/2, screenSize.height -100);
-  [node addChild:scoreLabel];
+  CCLabelTTF *scoreText;
+  CCLabelTTF *scoreValue;
+  CCLabelTTF *heightText;
+  CCLabelTTF *heightValue;
+  
+  //test for highscore
+  if(score > [[defaults valueForKey:@"HighScore"] intValue]){
+    [defaults setObject:[NSNumber numberWithInt:score] forKey:@"HighScore"];
+    scoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"NEW HIGH SCORE!"]
+                                                fontName:@"Arial"
+                                                fontSize:22];
+  }
+  else{
+    scoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"YOUR SCORE"]
+                                    fontName:@"Arial"
+                                    fontSize:22];
+  }
+  //test for new highest distance
+  if(height > [[defaults valueForKey:@"HighestDistance"] floatValue]){
+    [defaults setObject:[NSNumber numberWithFloat:height] forKey:@"HighestDistance"];
+    heightText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"HIGHEST EVER!"]
+                                    fontName:@"Arial"
+                                    fontSize:22];
+  }
+  else{
+    heightText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"DISTANCE"]
+                                    fontName:@"Arial"
+                                    fontSize:22];
+  }
+  
+  scoreValue = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score]
+                                   fontName:@"Arial"
+                                   fontSize:42];
+  heightValue = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.2fKm", height/1000]
+                                    fontName:@"Arial"
+                                    fontSize:42];
+  
+  scoreText.position = ccp(screenSize.width/2, 150);
+  scoreValue.position = ccp(screenSize.width/2, 120);
+  
+  heightText.position = ccp(screenSize.width/2, 80);
+  heightValue.position = ccp(screenSize.width/2, 50);
+  
+  [node addChild:scoreText];
+  [node addChild:scoreValue];
+  [node addChild:heightText];
+  [node addChild:heightValue];
   return node;
 }
 

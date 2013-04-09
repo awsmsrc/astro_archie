@@ -14,7 +14,8 @@
   if((self = [super init])){
     [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aUfo]]];
     _screenSize = [[CCDirector sharedDirector] winSize];
-    _ufoXVelocity = _screenSize.width/120;
+    _SpeedOveride = [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];
+    _ufoXVelocity = _SpeedOveride * (_screenSize.width/120);
     [self sprite].position = ccp(0.0f, _screenSize.height+50);
     [parentNode  addChild:self];
     [self addChild:self.sprite];

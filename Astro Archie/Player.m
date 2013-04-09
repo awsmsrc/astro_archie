@@ -18,7 +18,9 @@
   if(self = [super init]){
     self.height = 0.0f;
     _fuel = 100;
-    _velocity.y = 3;
+    _SpeedOveride = [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];
+    _velocity.y = _SpeedOveride * 3;
+    NSLog(@"player speed = %f", _velocity.y);
     [self initSpriteWithParentNode:parentNode];
   }
   return self;
@@ -212,7 +214,7 @@
 
 -(void)takeOffDidBegin
 {
-  [self schedule:@selector(incrementScore) interval:0.05];
+  [self schedule:@selector(incrementScore) interval:0.05/_SpeedOveride];
   [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion with Metal Debris.wav"];
 }
 
@@ -236,8 +238,8 @@
 
 -(void)setTargetYVelocity:(float)targetVelocity
 {
-  const float MAX_SPEED = 10.0f; //<<<<<<<<<<<<<<<<<<<<<<<<<<<< MAXIMUM SPEED
-  _targetYVelocity = targetVelocity;
+  const float MAX_SPEED = _SpeedOveride * 10.0f; //<<<<<<<<<<<<<<<<<<<<<<<<<<<< MAXIMUM SPEED
+  _targetYVelocity = _SpeedOveride * targetVelocity;
   _targetYVelocity = MIN(_targetYVelocity, MAX_SPEED);
 }
 
@@ -245,7 +247,7 @@
 {
   [self steerArchie];
   if(_targetYVelocity > [self getYVelocity]){
-    _velocity.y = MIN(_velocity.y += 0.2, _targetYVelocity);
+    _velocity.y = MIN(_velocity.y += (_SpeedOveride * 0.2), _targetYVelocity);
   }
   //NSLog(@"velocity = %f", _velocity.y);
 }

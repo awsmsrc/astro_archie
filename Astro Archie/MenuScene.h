@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SettingsLayer.h"
 
 @interface MenuScene : CCLayer {
     
 }
 
+@property(nonatomic)Boolean menuEnabled;
 +(id)scene;
+-(void)enableMenu;
 
 @end

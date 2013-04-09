@@ -16,6 +16,7 @@
   if(self = [super init]){
     [parentNode addChild:self];
     _heightSinceLastEnemy = 0.0f;
+    _randomDistanceVariance = 0.0f;
     _currentEnemy = nil;
     _active = false;
   }
@@ -37,6 +38,7 @@
         [player didCollideWithObject:[self currentEnemy]];
         _active = false;
         _heightSinceLastEnemy = player.height;
+        _randomDistanceVariance = arc4random_uniform(10000.0f);
         [[self currentEnemy] removeFromParentAndCleanup:YES];
         self.currentEnemy = nil;
       }
@@ -50,6 +52,7 @@
     if([self currentEnemy ].sprite.position.y < -100){
       _active = false;
       _heightSinceLastEnemy = player.height;
+      _randomDistanceVariance = arc4random_uniform(10000.0f);
       [[self currentEnemy] removeFromParentAndCleanup:YES];
       self.currentEnemy = nil;
     }
@@ -61,7 +64,7 @@
   float lowEnemyThreshold = 40000.0f;
   float height = player.height;
   
-    if( (height - _heightSinceLastEnemy) > spawnDistance && !_active )
+    if( (height - _heightSinceLastEnemy) > (spawnDistance + _randomDistanceVariance) && !_active )
   {
     int ID = -1;
     _active = true;

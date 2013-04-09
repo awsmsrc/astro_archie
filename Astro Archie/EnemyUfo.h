@@ -11,6 +11,7 @@
 @interface EnemyUfo : Enemy{
   float _ufoXVelocity;
   CGSize _screenSize;
+  float _SpeedOveride;
 }
 
 @end
