@@ -15,8 +15,13 @@
 -(id)initForAccelerometerWithDelegate:(id)delegate{
   NSLog(@"Steering Input Init");
   if(self = [super init]){
-    //[self addChild: [[AccellerometerInput alloc] initWithDelegate:(id)delegate]];
-    [self addChild: [[FaceInput alloc] initWithDelegate:(id)delegate]];
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"Control"] isEqual: @"Face"]){
+      [self addChild: [[FaceInput alloc] initWithDelegate:(id)delegate]];
+    }
+    else{
+      [self addChild: [[AccellerometerInput alloc] initWithDelegate:(id)delegate]];
+    }
+    
   }
   return self;
 }

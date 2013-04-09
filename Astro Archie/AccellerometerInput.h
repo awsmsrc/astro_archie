@@ -13,6 +13,6 @@
   id _delegate;
 }
 
-+(id)initWithDelegate:(id)delegate;
+-(id)initWithDelegate:(id)delegate;
 
 @end

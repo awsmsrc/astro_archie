@@ -44,7 +44,7 @@
   self.isTouchEnabled = YES;
   self.isAccelerometerEnabled = YES;
   NSLog(@"Steering input called");
- [self addChild:[[SteeringInput alloc] initForAccelerometerWithDelegate:player]];
+ [self addChild:[[[SteeringInput alloc] initForAccelerometerWithDelegate:player] autorelease]];
   NSLog(@"Steering input loaded");
   [self scheduleUpdate];
   float intervalAdjust = 1 / [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];

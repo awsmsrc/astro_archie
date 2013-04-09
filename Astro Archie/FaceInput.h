@@ -21,6 +21,6 @@
 @property (nonatomic, strong) UIImage *borderImage;
 @property (nonatomic, strong) CIDetector *faceDetector;
 
-+(id)initWithDelegate:(id)delegate;
+-(id)initWithDelegate:(id)delegate;
 
 @end

@@ -20,7 +20,6 @@
     _fuel = 100;
     _SpeedOveride = [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];
     _velocity.y = _SpeedOveride * 3;
-    NSLog(@"player speed = %f", _velocity.y);
     [self initSpriteWithParentNode:parentNode];
   }
   return self;
