@@ -175,6 +175,9 @@
 		A3E20164163455BB00151E0D /* CollectablesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E20163163455BB00151E0D /* CollectablesManager.m */; };
 		A3E201661634584A00151E0D /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E201651634584A00151E0D /* coin.png */; };
 		A3E20168163468A900151E0D /* coin_collect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3E20167163468A900151E0D /* coin_collect.mp3 */; };
+		A3F371B8170C6CE90070076B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F371B7170C6CE90070076B /* CoreImage.framework */; };
+		A3F371BA170C6E8A0070076B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F371B9170C6E8A0070076B /* CoreVideo.framework */; };
+		A3F371BC170C6E940070076B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F371BB170C6E940070076B /* CoreMedia.framework */; };
 		A3F39A92166661350033950C /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F39A91166661350033950C /* flame.png */; };
 		A3F39A99166788CE0033950C /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F39A98166788CE0033950C /* collect.png */; };
 		A3FCE879163689C500B24844 /* button_pushed.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3FCE878163689C500B24844 /* button_pushed.wav */; };
@@ -497,6 +500,9 @@
 		A3E20163163455BB00151E0D /* CollectablesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectablesManager.m; path = "Astro Archie/CollectablesManager.m"; sourceTree = "<group>"; };
 		A3E201651634584A00151E0D /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Resources/coin.png; sourceTree = "<group>"; };
 		A3E20167163468A900151E0D /* coin_collect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin_collect.mp3; sourceTree = "<group>"; };
+		A3F371B7170C6CE90070076B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		A3F371B9170C6E8A0070076B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A3F371BB170C6E940070076B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A3F39A91166661350033950C /* flame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flame.png; sourceTree = "<group>"; };
 		A3F39A98166788CE0033950C /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
 		A3FCE878163689C500B24844 /* button_pushed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_pushed.wav; sourceTree = "<group>"; };
@@ -541,11 +547,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F371BC170C6E940070076B /* CoreMedia.framework in Frameworks */,
+				A3F371BA170C6E8A0070076B /* CoreVideo.framework in Frameworks */,
+				A3F371B8170C6CE90070076B /* CoreImage.framework in Frameworks */,
+				A33C6689162EEB650084BC45 /* AVFoundation.framework in Frameworks */,
 				A33C6681162EEB650084BC45 /* QuartzCore.framework in Frameworks */,
 				A33C6683162EEB650084BC45 /* OpenGLES.framework in Frameworks */,
 				A33C6685162EEB650084BC45 /* OpenAL.framework in Frameworks */,
 				A33C6687162EEB650084BC45 /* AudioToolbox.framework in Frameworks */,
-				A33C6689162EEB650084BC45 /* AVFoundation.framework in Frameworks */,
 				A33C668B162EEB650084BC45 /* UIKit.framework in Frameworks */,
 				A33C668D162EEB650084BC45 /* Foundation.framework in Frameworks */,
 				A33C668F162EEB650084BC45 /* CoreGraphics.framework in Frameworks */,
@@ -588,6 +597,9 @@
 		A33C6671162EEB650084BC45 = {
 			isa = PBXGroup;
 			children = (
+				A3F371BB170C6E940070076B /* CoreMedia.framework */,
+				A3F371B9170C6E8A0070076B /* CoreVideo.framework */,
+				A3F371B7170C6CE90070076B /* CoreImage.framework */,
 				A339F7BF164AC6FC0089FF09 /* Default-568h@2x.png */,
 				A339F7BD164AC6F70089FF09 /* Default@2x.png */,
 				A30438FA164AC02F00308F20 /* Default.png */,

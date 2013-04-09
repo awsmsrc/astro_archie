@@ -21,6 +21,8 @@
 
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-  [_delegate applyAcceleration:acceleration];
+  
+  NSNumber *acc = [NSNumber numberWithFloat:acceleration.x];
+  [_delegate applyAcceleration:acc];
 }
 @end
