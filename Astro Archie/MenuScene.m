@@ -40,10 +40,12 @@
     bg.anchorPoint = ccp(0,0);
     bg.position = ccp(0,0);
     [self addChild:bg z:-1];
-    CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:@"play_off.png" selectedImage:@"play_on.png"
+    CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:[[assetManager class] getButtonFilepathFor:play]
+                                                    selectedImage:[[assetManager class] getButtonFilepathFor:playPushed]
                                                            target:self
                                                          selector:@selector(startGame)];
-    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings_off.png" selectedImage:@"settings_on.png"
+    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:[[assetManager class] getButtonFilepathFor:settings]
+                                                        selectedImage:[[assetManager class] getButtonFilepathFor:settingsPushed]
                                                            target:self
                                                          selector:@selector(settingsScreen)];
     settingsButton.position = ccp(0, -60);

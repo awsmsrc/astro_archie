@@ -34,7 +34,8 @@
     [self addChild:titleLabel];
     
         
-    CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:@"play_off.png" selectedImage:@"play_on.png"
+    CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:[[assetManager class] getButtonFilepathFor:play]
+                                                    selectedImage:[[assetManager class] getButtonFilepathFor:playPushed]
                                                            target:self
                                                          selector:@selector(startGame)];
     CCMenu *menu = [CCMenu menuWithItems:playButton, nil];

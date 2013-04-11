@@ -10,7 +10,7 @@
 
 @interface assetManager : NSObject
 
-enum{
+enum sprites{
   aArchie  = 0,
   aCoin    = 1,
   aStar    = 2,
@@ -24,6 +24,36 @@ enum{
   aBackground3 = 10
 };
 
+enum buttontypes{
+  //main menu
+  play,
+  playPushed,
+  settings,
+  settingsPushed,
+  //settings
+  tilt,
+  tiltPushed,
+  face,
+  facePushed,
+  speedNormal,
+  speedNormalPushed,
+  speedHalf,
+  speedHalfPushed,
+  speedFifth,
+  speedFifthPushed,
+  highVis,
+  highVisPushed,
+  //general
+  back,
+  backPushed,
+  exitButton,
+  exitButtonPushed,
+  //social
+  tweet,
+  tweetPushed
+};
+
 +(NSString *)getSpriteFilepathFor:(int)assetName;
++(NSString *)getButtonFilepathFor:(int)buttonName;
 
 @end

@@ -22,11 +22,13 @@
     pauseLayer.position = CGPointZero;
     [self addChild: pauseLayer];
     CCMenuItem *ResumeMenuItem = [CCMenuItemImage
-                                  itemFromNormalImage:@"resume.png" selectedImage:@"resume_pushed.png"
+                                  itemFromNormalImage:[[assetManager class] getButtonFilepathFor:play]
+                                  selectedImage:[[assetManager class] getButtonFilepathFor:playPushed]
                                   target:self selector:@selector(ResumeButtonTapped:)];
     ResumeMenuItem.position = ccp(0, 30);
     CCMenuItem *QuitMenuItem = [CCMenuItemImage
-                                itemFromNormalImage:@"quit.png" selectedImage:@"quit_pushed.png"
+                                itemFromNormalImage:[[assetManager class] getButtonFilepathFor:exitButton]
+                                selectedImage:[[assetManager class] getButtonFilepathFor:exitButtonPushed]
                                 target:self selector:@selector(QuitButtonTapped:)];
     QuitMenuItem.position = ccp(0, -30);
     pauseScreenMenu = [CCMenu menuWithItems:ResumeMenuItem,QuitMenuItem, nil];

@@ -56,4 +56,87 @@
   }
   return filepath;
 }
+
++(NSString *)getButtonFilepathFor:(int)buttonName
+{
+  NSString *filepath = [[[NSString alloc] init] autorelease];
+  filepath = @"";
+  
+  switch(buttonName){
+    //main menu
+    case play:
+      filepath = @"playA.png";
+      break;
+    case playPushed:
+      filepath = @"playB.png";
+      break;
+    case settings:
+      filepath = @"settingsA.png";
+      break;
+    case settingsPushed:
+      filepath = @"settingsB.png";
+      break;
+    //settings
+    case tilt:
+      filepath = @"tiltA.png";
+      break;
+    case tiltPushed:
+      filepath = @"tiltB.png";
+      break;
+    case face:
+      filepath = @"faceA.png";
+      break;
+    case facePushed:
+      filepath = @"faceB.png";
+      break;
+    case speedNormal:
+      filepath = @"speedNormalA.png";
+      break;
+    case speedNormalPushed:
+      filepath = @"speedNormalB.png";
+      break;
+    case speedHalf:
+      filepath = @"speedHalfA.png";
+      break;
+    case speedHalfPushed:
+      filepath = @"speedHalfB.png";
+      break;
+    case speedFifth:
+      filepath = @"speedFifthA.png";
+      break;
+    case speedFifthPushed:
+      filepath = @"speedFifthB.png";
+      break;
+    case highVis:
+      filepath = @"highVisA.png";
+      break;
+    case highVisPushed:
+      filepath = @"highVisB.png";
+      break;
+    //general
+    case back:
+      filepath = @"backA.png";
+      break;
+    case backPushed:
+      filepath = @"backB.png";
+      break;
+    case exitButton:
+      filepath = @"exitA.png";
+      break;
+    case exitButtonPushed:
+      filepath = @"exitB.png";
+      break;
+    //social
+    case tweet:
+      filepath = @"tweetA.png";
+      break;
+    case tweetPushed:
+      filepath = @"tweetB.png";
+      break;
+    default:
+      break;
+  }
+  return filepath;
+}
+
 @end
