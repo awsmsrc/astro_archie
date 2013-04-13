@@ -6,7 +6,6 @@
 //
 
 #import "SettingsLayer.h"
-#import "MenuScene.h"
 #import "SimpleAudioEngine.h"
 
 
@@ -163,9 +162,6 @@
   [[self parent] removeChild:settingsScreenMenu cleanup:YES];
   [[self parent] removeChild:settingsLayer cleanup:YES];
   [self removeFromParentAndCleanup:YES];
-  
-  NSLog( @"control = %@", [defaults stringForKey:@"Control"] );
-  NSLog( @"speed = %f", [[defaults valueForKey:@"SpeedOveride"] floatValue]);
 }
 
 -(void)buttonPushed

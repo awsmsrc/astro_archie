@@ -12,16 +12,22 @@
 
 enum sprites{
   aArchie  = 0,
-  aCoin    = 1,
-  aStar    = 2,
-  aFuel    = 3,
-  aSpecial = 4,
-  aUfo     = 5,
-  aMeteor  = 6,
-  aPlane   = 7,
-  aBackground1 = 8,
-  aBackground2 = 9,
-  aBackground3 = 10
+  aCoin,
+  aStar,
+  aFuel,
+  aSpecial,
+  aUfo,
+  aMeteor,
+  aPlane,
+  aBGLayer0A,
+  aBGLayer0B,
+  aBGLayer0C,
+  aBGLayer1,
+  aBGLayer2,
+  aBGLayer3,
+  aStartMenuBackground,
+  aEndMenuBackground,
+  aHelpBackground
 };
 
 enum buttontypes{
@@ -30,6 +36,8 @@ enum buttontypes{
   playPushed,
   settings,
   settingsPushed,
+  help,
+  helpPushed,
   //settings
   tilt,
   tiltPushed,

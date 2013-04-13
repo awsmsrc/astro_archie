@@ -51,9 +51,9 @@
   particle.endColor=endColor;
   ccColor4F endColorVar={0.00,0.00,0.00,0.00};
   particle.endColorVar=endColorVar;
-  particle.startSize=10.37;
+  particle.startSize=20.37;
   particle.startSizeVar=10.00;
-  particle.endSize=20.33;
+  particle.endSize=50.33;
   particle.endSizeVar=5.00;
   particle.gravity=ccp(0.00,50.00);
   particle.radialAccel=0.00;

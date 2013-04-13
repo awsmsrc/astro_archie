@@ -15,44 +15,121 @@
   NSString *filepath = [[[NSString alloc] init] autorelease];
   filepath = @"";
   
-  //for our current iPhone config
-  //could do multiple switches for the different platform assets
-  switch(assetName){
-    case aArchie:
-      filepath = @"archie.png";
-      break;
-    case aCoin:
-       filepath = @"starY.png";
-      break;
-    case aStar:
-        filepath = @"starY.png";
-      break;
-    case aFuel:
-      filepath = @"fuel.png";
-      break;
-    case aSpecial:
-      filepath = @"starP.png";
-      break;
-    case aUfo:
-      filepath = @"ufo.png";
-      break;
-    case aMeteor:
-      filepath = @"asteroid.png";
-      break;
-    case aPlane:
-      filepath = @"birdtest2.png";
-      break;
-    case aBackground1:
-      filepath = @"bg1.png";
-      break;
-    case aBackground2:
-      filepath = @"bg2.png";
-      break;
-    case aBackground3:
-      filepath = @"bg3.png";
-      break;
-    default:
-      break;      
+  // set for high visibility
+  if([[[NSUserDefaults standardUserDefaults] valueForKey:@"HighVisibilty"] boolValue]){
+    switch(assetName){
+      case aArchie:
+        filepath = @"highVisArchie.png";
+        break;
+      case aCoin:
+        filepath = @"HighVisStar1.png";
+        break;
+      case aStar:
+        filepath = @"HighVisStar1.png";
+        break;
+      case aFuel:
+        filepath = @"HighVisFuel.png";
+        break;
+      case aSpecial:
+        filepath = @"HighVisStar2.png";
+        break;
+      case aUfo:
+        filepath = @"HighVisUfo.png";
+        break;
+      case aMeteor:
+        filepath = @"HighVisAsteroid.png";
+        break;
+      case aPlane:
+        filepath = @"HighVisBird.png";
+        break;
+      case aBGLayer0A:
+        filepath = @"blackBox.png";
+        break;
+      case aBGLayer0B:
+        filepath = @"blackBox.png";
+        break;
+      case aBGLayer0C:
+        filepath = @"blackBox.png";
+        break;
+      case aBGLayer1:
+        filepath = @"layer1.png";
+        break;
+      case aBGLayer2:
+        filepath = @"layer2.png";
+        break;
+      case aBGLayer3:
+        filepath = @"layer3.png";
+        break;
+      case aStartMenuBackground:
+        filepath = @"menubgTALL.png";
+        break;
+      case aEndMenuBackground:
+        filepath = @"blackBox.png";
+        break;
+      case aHelpBackground:
+        filepath = @"instructions.png";
+        break;
+      default:
+        break;
+    }
+  }
+  // set for normal visibility
+  else{
+    switch(assetName){
+      case aArchie:
+        filepath = @"newArchie.png";
+        break;
+      case aCoin:
+         filepath = @"yellStar.png";
+        break;
+      case aStar:
+          filepath = @"yellStar.png";
+        break;
+      case aFuel:
+        filepath = @"fuelCan.png";
+        break;
+      case aSpecial:
+        filepath = @"purpleStar.png";
+        break;
+      case aUfo:
+        filepath = @"ufo.png";
+        break;
+      case aMeteor:
+        filepath = @"asteroidsmall.png";
+        break;
+      case aPlane:
+        filepath = @"birdtest2.png";
+        break;
+      case aBGLayer0A:
+        filepath = @"layer0A.png";
+        break;
+      case aBGLayer0B:
+        filepath = @"layer0B.png";
+        break;
+      case aBGLayer0C:
+        filepath = @"layer0C.png";
+        break;
+      case aBGLayer1:
+        filepath = @"layer1.png";
+        break;
+      case aBGLayer2:
+        filepath = @"layer2.png";
+        break;
+      case aBGLayer3:
+        filepath = @"layer3.png";
+        break;
+      case aStartMenuBackground:
+        filepath = @"menubgTALL.png";
+        break;
+      case aEndMenuBackground:
+        filepath = @"menubgTALL.png";
+        break;
+      case aHelpBackground:
+        filepath = @"instructions.png";
+        break;
+      default:
+        break;      
+    }
   }
   return filepath;
 }
@@ -75,6 +152,12 @@
       break;
     case settingsPushed:
       filepath = @"settingsB.png";
+      break;
+    case help:
+      filepath = @"helpA.png";
+      break;
+    case helpPushed:
+      filepath = @"helpB.png";
       break;
     //settings
     case tilt:

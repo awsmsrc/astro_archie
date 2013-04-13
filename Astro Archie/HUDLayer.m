@@ -31,9 +31,9 @@
     menu.position = ccp(22, screenSize.height - 25);
     [self addChild:menu z:1];
   
-    CCSprite *boost = [CCSprite spriteWithFile:@"rocket.png"];
-    boost.position = ccp(screenSize.width - 30, 30);
-    [self addChild:boost];
+//    CCSprite *boost = [CCSprite spriteWithFile:@"rocket.png"];
+//    boost.position = ccp(screenSize.width - 30, 30);
+//    [self addChild:boost];
   
   
     //score label

@@ -24,21 +24,26 @@
 -(id)init
 {
   if((self = [super init])){
-    CCSprite *bg = [CCSprite spriteWithFile:@"menu_bg.png"];
+    CCSprite *bg = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aEndMenuBackground]];
     bg.anchorPoint = ccp(0,0);
     bg.position = ccp(0,0);
     [self addChild:bg z:-1];
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"GAME OVER" fontName:@"Arial" fontSize:30];
-    titleLabel.position = ccp(screenSize.width/2, screenSize.height - 50);
-    [self addChild:titleLabel];
+    
+    //CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"GAME OVER" fontName:@"Arial" fontSize:30];
+    //titleLabel.position = ccp(screenSize.width/2, screenSize.height - 50);
+    //[self addChild:titleLabel];
     
         
     CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:[[assetManager class] getButtonFilepathFor:play]
                                                     selectedImage:[[assetManager class] getButtonFilepathFor:playPushed]
                                                            target:self
                                                          selector:@selector(startGame)];
+    playButton.scaleX = 0.75;
+    playButton.position = ccp(playButton.contentSize.width/2 -20, screenSize.height/2 );
+    
     CCMenu *menu = [CCMenu menuWithItems:playButton, nil];
+    menu.position = CGPointZero;
     [self addChild:menu];
     [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"evil_music.mp3" loop:YES];
   }
@@ -55,17 +60,28 @@
   CCLabelTTF *heightText;
   CCLabelTTF *heightValue;
   
+  ccColor3B normalColour;
+  ccColor3B highlightColour = ccc3(255,0,0);
+  
+  if([[defaults valueForKey:@"HighVisibilty"] boolValue]){
+    normalColour = ccc3(255,255,255);
+  }
+  else
+    normalColour = ccc3(0,0,0);
+  
   //test for highscore
   if(score > [[defaults valueForKey:@"HighScore"] intValue]){
     [defaults setObject:[NSNumber numberWithInt:score] forKey:@"HighScore"];
     scoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"NEW HIGH SCORE!"]
                                                 fontName:@"Arial"
                                                 fontSize:22];
+    scoreText.color = highlightColour;
   }
   else{
     scoreText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"YOUR SCORE"]
                                     fontName:@"Arial"
                                     fontSize:22];
+    scoreText.color = normalColour;
   }
   //test for new highest distance
   if(height > [[defaults valueForKey:@"HighestDistance"] floatValue]){
@@ -73,25 +89,31 @@
     heightText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"HIGHEST EVER!"]
                                     fontName:@"Arial"
                                     fontSize:22];
+    heightText.color = highlightColour;
   }
   else{
     heightText = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"DISTANCE"]
                                     fontName:@"Arial"
                                     fontSize:22];
+    heightText.color = normalColour;
   }
   
   scoreValue = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", score]
                                    fontName:@"Arial"
                                    fontSize:42];
+  scoreValue.color = normalColour;
   heightValue = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.2fKm", height/1000]
                                     fontName:@"Arial"
                                     fontSize:42];
+  heightValue.color = normalColour;
   
-  scoreText.position = ccp(screenSize.width/2, 150);
-  scoreValue.position = ccp(screenSize.width/2, 120);
+  float posX = 110;
+  //scoreText.anchorPoint = scoreValue.anchorPoint = heightText.anchorPoint = heightValue.anchorPoint = CGPointZero;
+  scoreText.position  = ccp(posX, screenSize.height - 80);
+  scoreValue.position = ccp(posX, scoreText.position.y - 30);
   
-  heightText.position = ccp(screenSize.width/2, 80);
-  heightValue.position = ccp(screenSize.width/2, 50);
+  heightText.position  = ccp(posX, scoreValue.position.y - 40);
+  heightValue.position = ccp(posX, heightText.position.y - 30);
   
   [node addChild:scoreText];
   [node addChild:scoreValue];

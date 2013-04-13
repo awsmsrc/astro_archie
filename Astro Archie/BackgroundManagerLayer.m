@@ -13,21 +13,47 @@
 
 @synthesize BG1 = _BG1;
 @synthesize BG2 = _BG2;
+@synthesize BGL1 = _BGL1;
+@synthesize BGL2 = _BGL2;
+@synthesize BGL3 = _BGL3;
 
 -(id)initWithParentNode:(id)parentNode
 {
+  CGSize screenSize = [[CCDirector sharedDirector] winSize];
+  
   if(self = [super init]){
     _bgIndex = 1;
-    self.BG1 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBackground1]];
+    self.BG1 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBGLayer0A]];
     BG1Height = self.BG1.texture.contentSize.height;
     self.BG1.anchorPoint = ccp(0,0);
     self.BG1.position = ccp(0,0);
-    self.BG2 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBackground2]];
+    
+    self.BG2 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBGLayer0B]];
     BG2Height = self.BG2.texture.contentSize.height;
     self.BG2.anchorPoint = ccp(0,0);
     self.BG2.position = ccp(0, BG1Height -1 );
-    [self addChild:self.BG1 z:-1];
-    [self addChild:self.BG2 z:-1];
+    
+    self.BGL1 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBGLayer1]];
+    self.BGL1.anchorPoint = ccp(0,0);
+    self.BGL1.position = ccp(0,0);
+    self.BGL1.scale = screenSize.width / self.BGL1.texture.contentSize.width;
+    
+    self.BGL2 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBGLayer2]];
+    self.BGL2.anchorPoint = ccp(0,0);
+    self.BGL2.position = ccp(0,0);
+    self.BGL2.scale = screenSize.width / self.BGL2.texture.contentSize.width;
+    
+    self.BGL3 = [CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aBGLayer3]];
+    self.BGL3.anchorPoint = ccp(0,0);
+    self.BGL3.position = ccp(0,0);
+    self.BGL3.scale = screenSize.width / self.BGL3.texture.contentSize.width;
+    
+    [self addChild:self.BG1 z:-5];
+    [self addChild:self.BG2 z:-5];
+    [self addChild:self.BGL1 z:-3];
+    [self addChild:self.BGL2 z:-2];
+    [self addChild:self.BGL3 z:-1];
+    
     [parentNode addChild:self z:-1];
     [self addStars];
   }
@@ -36,6 +62,10 @@
 
 -(void)increaseAltitudeWithVelocity:(float)velocity
 {
+  self.BGL1.position = ccp(0, self.BGL1.position.y - velocity * 0.3);
+  self.BGL2.position = ccp(0, self.BGL2.position.y - velocity * 0.5);
+  self.BGL3.position = ccp(0, self.BGL3.position.y - velocity * 0.9);
+
   //three backgrounds travelling downwards
   //bg1 swaps to bg3 and moves atop bg2
   //once bg3 has scrolled all the way to black, both backgrounds stop moving
@@ -47,7 +77,7 @@
     //test to see if either background is offscreen
     if(self.BG1.position.y < -BG1Height){
       if(_bgIndex == 1){
-        [self swapBackgroundSprite:1 with:[[assetManager class] getSpriteFilepathFor:aBackground3]];
+        [self swapBackgroundSprite:1 with:[[assetManager class] getSpriteFilepathFor:aBGLayer0C]];
         _bgIndex = 2;
       }
       else if(_bgIndex == 3) _bgIndex = 4;
@@ -68,7 +98,7 @@
       BG1Height = self.BG1.texture.contentSize.height;
       self.BG1.anchorPoint = ccp(0,0);
       self.BG1.position = ccp(0, (self.BG2.position.y + BG2Height -2));
-      [self addChild:self.BG1 z:-1];
+      [self addChild:self.BG1 z:-5];
       break;
     case 2:
       [self removeChild:self.BG2  cleanup:YES];
@@ -76,7 +106,7 @@
       BG2Height = self.BG2.texture.contentSize.height;
       self.BG2.anchorPoint = ccp(0,0);
       self.BG2.position = ccp(0, (self.BG1.position.y + BG1Height -2));
-      [self addChild:self.BG2 z:-1];
+      [self addChild:self.BG2 z:-5];
       break;
     default:
       NSLog(@"Nothing Swapped!!");
@@ -126,6 +156,6 @@
   particle.posVar=ccp(358.40,415.40);
   
   /////*** Assignment PARENT NODE!!!  ***/////
-  [self addChild:particle z:0];
+  [self addChild:particle z:-4];
 }
 @end

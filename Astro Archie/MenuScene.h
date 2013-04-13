@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "SettingsLayer.h"
+#import "helpLayer.h"
 #import "assetManager.h"
 
 @interface MenuScene : CCLayer {

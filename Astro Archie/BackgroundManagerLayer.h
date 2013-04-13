@@ -16,6 +16,9 @@
 }
 @property(nonatomic, retain)CCSprite *BG1;
 @property(nonatomic, retain)CCSprite *BG2;
+@property(nonatomic, retain)CCSprite *BGL1;
+@property(nonatomic, retain)CCSprite *BGL2;
+@property(nonatomic, retain)CCSprite *BGL3;
 
 -(id)initWithParentNode:(id)parentNode;
 -(void)increaseAltitudeWithVelocity:(float)velocity;

@@ -44,7 +44,7 @@
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
   [self setSprite:[CCSprite spriteWithFile:[[assetManager class] getSpriteFilepathFor:aArchie]]];
   float imageHeight = [_sprite texture].contentSize.height;
-  [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2);
+  [self sprite].position = CGPointMake(screenSize.width/2, imageHeight/2 + 20);
   [parentNode addChild:self];
   [self addChild:[self sprite] z:0 tag:1];
 }
