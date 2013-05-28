@@ -154,6 +154,7 @@
 		A3CEA13C16331664000BFA37 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA13B16331664000BFA37 /* rocket.png */; };
 		A3CEA13F16331AB8000BFA37 /* pause_pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA13D16331AB8000BFA37 /* pause_pushed.png */; };
 		A3CEA14016331AB8000BFA37 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEA13E16331AB8000BFA37 /* pause.png */; };
+		A3DB0D96171C0EBF00DB974C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DB0D95171C0EBF00DB974C /* Twitter.framework */; };
 		A3E20160163407CA00151E0D /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E2015F163407CA00151E0D /* Coin.m */; };
 		A3E20164163455BB00151E0D /* CollectablesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E20163163455BB00151E0D /* CollectablesManager.m */; };
 		A3E20168163468A900151E0D /* coin_collect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3E20167163468A900151E0D /* coin_collect.mp3 */; };
@@ -503,6 +504,7 @@
 		A3CEA13B16331664000BFA37 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rocket.png; path = Resources/rocket.png; sourceTree = "<group>"; };
 		A3CEA13D16331AB8000BFA37 /* pause_pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause_pushed.png; path = Resources/pause_pushed.png; sourceTree = "<group>"; };
 		A3CEA13E16331AB8000BFA37 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
+		A3DB0D95171C0EBF00DB974C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		A3E2015E163407CA00151E0D /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = "Astro Archie/Coin.h"; sourceTree = "<group>"; };
 		A3E2015F163407CA00151E0D /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coin.m; path = "Astro Archie/Coin.m"; sourceTree = "<group>"; };
 		A3E20162163455BB00151E0D /* CollectablesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectablesManager.h; path = "Astro Archie/CollectablesManager.h"; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DB0D96171C0EBF00DB974C /* Twitter.framework in Frameworks */,
 				A3F371BC170C6E940070076B /* CoreMedia.framework in Frameworks */,
 				A3F371BA170C6E8A0070076B /* CoreVideo.framework in Frameworks */,
 				A3F371B8170C6CE90070076B /* CoreImage.framework in Frameworks */,
@@ -650,6 +653,7 @@
 		A33C6671162EEB650084BC45 = {
 			isa = PBXGroup;
 			children = (
+				A3DB0D95171C0EBF00DB974C /* Twitter.framework */,
 				A3F371BB170C6E940070076B /* CoreMedia.framework */,
 				A3F371B9170C6E8A0070076B /* CoreVideo.framework */,
 				A3F371B7170C6CE90070076B /* CoreImage.framework */,

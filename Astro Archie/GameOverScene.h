@@ -11,8 +11,9 @@
 #import "assetManager.h"
 
 @interface GameOverScene : CCLayer {
+  
 }
-
+@property(nonatomic, strong) NSNumber *score;
 -(id)initWithScore:(int)score andHeight:(float)height;
 
 @end

@@ -16,6 +16,7 @@
 @implementation AppDelegate
 
 @synthesize window;
+@synthesize viewController;
 
 - (void) removeStartupFlicker
 {
@@ -42,6 +43,7 @@
 {
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director
@@ -50,7 +52,6 @@
 	
 	
 	CCDirector *director = [CCDirector sharedDirector];
-	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
 	viewController.wantsFullScreenLayout = YES;
@@ -89,7 +90,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	[director setDisplayFPS:NO];
 	
 	
 	// make the OpenGLView a child of the view controller

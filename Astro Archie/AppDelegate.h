@@ -16,5 +16,6 @@
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) id viewController;
 
 @end

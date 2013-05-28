@@ -6,12 +6,14 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "GameOverScene.h"
 #import "SimpleAudioEngine.h"
 #import "GameScene.h"
-
+#import <Twitter/Twitter.h>
 
 @implementation GameOverScene
+@synthesize score = _score;
 
 +(id)scene
 {
@@ -30,19 +32,21 @@
     [self addChild:bg z:-1];
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
-    //CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"GAME OVER" fontName:@"Arial" fontSize:30];
-    //titleLabel.position = ccp(screenSize.width/2, screenSize.height - 50);
-    //[self addChild:titleLabel];
-    
-        
     CCMenuItem *playButton = [CCMenuItemImage itemFromNormalImage:[[assetManager class] getButtonFilepathFor:play]
                                                     selectedImage:[[assetManager class] getButtonFilepathFor:playPushed]
                                                            target:self
                                                          selector:@selector(startGame)];
+    
+    CCMenuItem *tweetButton = [CCMenuItemImage itemFromNormalImage:[[assetManager class] getButtonFilepathFor:tweet]
+                                                    selectedImage:[[assetManager class] getButtonFilepathFor:tweetPushed]
+                                                           target:self
+                                                         selector:@selector(tweetScore)];
     playButton.scaleX = 0.75;
     playButton.position = ccp(playButton.contentSize.width/2 -20, screenSize.height/2 );
+    tweetButton.position = ccp(playButton.contentSize.width/2 -20, (screenSize.height/2 - 80));
+    tweetButton.scaleX = 0.75;
     
-    CCMenu *menu = [CCMenu menuWithItems:playButton, nil];
+    CCMenu *menu = [CCMenu menuWithItems:playButton, tweetButton, nil];
     menu.position = CGPointZero;
     [self addChild:menu];
     [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"evil_music.mp3" loop:YES];
@@ -53,6 +57,7 @@
 -(id)initWithScore:(int)score andHeight:(float)height
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
   id node = [self.class node];
   CCLabelTTF *scoreText;
@@ -119,6 +124,10 @@
   [node addChild:scoreValue];
   [node addChild:heightText];
   [node addChild:heightValue];
+  
+  [node setScore:[[NSNumber alloc] initWithInt:score]];
+  NSLog(@"initialize score");
+  NSLog(@"%@", self.score);
   return node;
 }
 
@@ -130,6 +139,33 @@
   [[SimpleAudioEngine  sharedEngine] stopBackgroundMusic];
   GameScene * gs = [GameScene node];
   [[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipX  transitionWithDuration:0.5 scene: gs]];
+}
+
+-(NSString *)tweetText
+{
+  return [NSString stringWithFormat:@"I just scored %@ in Astro Archie, download it and see if you can beat me!", [self score]];
+}
+
+-(void)tweetScore
+{
+  AppDelegate *app = (((AppDelegate *)[UIApplication sharedApplication].delegate));
+  if ([TWTweetComposeViewController canSendTweet])
+  {
+    TWTweetComposeViewController *tweetSheet =[[TWTweetComposeViewController alloc] init];
+    [tweetSheet setInitialText: [self tweetText]];
+    [app.viewController presentModalViewController:tweetSheet animated:YES];
+  }
+  else
+  {
+     UIAlertView *alertView = [[UIAlertView alloc]
+                                initWithTitle:@"Sorry"
+                                message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                delegate:self
+                                cancelButtonTitle:@"OK"
+                                otherButtonTitles:nil];
+     [alertView show];
+  }
+
 }
 
 @end

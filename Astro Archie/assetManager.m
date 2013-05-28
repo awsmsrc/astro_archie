@@ -52,7 +52,7 @@
         filepath = @"blackBox.png";
         break;
       case aBGLayer1:
-        filepath = @"layer1.png";
+        filepath = @"blackBox.png";
         break;
       case aBGLayer2:
         filepath = @"layer2.png";
