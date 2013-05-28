@@ -41,14 +41,17 @@
 -(void)beginGameplay
 {
   [[SimpleAudioEngine  sharedEngine] playBackgroundMusic:@"luke loop 3.mp3" loop:YES];
-  self.isTouchEnabled = YES;
-  self.isAccelerometerEnabled = YES;
-  NSLog(@"Steering input called");
- [self addChild:[[[SteeringInput alloc] initForAccelerometerWithDelegate:player] autorelease]];
-  NSLog(@"Steering input loaded");
   [self scheduleUpdate];
   float intervalAdjust = 1 / [[[NSUserDefaults standardUserDefaults] valueForKey:@"SpeedOveride"] floatValue];
   [self schedule:@selector(increaseSpeed) interval:(8 * intervalAdjust)];
+}
+
+-(void)addController{
+  self.isTouchEnabled = YES;
+  self.isAccelerometerEnabled = YES;
+  //NSLog(@"Steering input called");
+  [self addChild:[[[SteeringInput alloc] initForAccelerometerWithDelegate:player] autorelease]];
+  //NSLog(@"Steering input loaded");
 }
 
 -(void)setUpScene{

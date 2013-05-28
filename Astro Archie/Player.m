@@ -30,6 +30,7 @@
   CGSize screenSize = [[CCDirector sharedDirector] winSize];
   CCSequence *seq = [CCSequence actions:
                     [CCDelayTime actionWithDuration:1.2],
+                    [CCCallFunc actionWithTarget:self.parent.parent selector:@selector(addController)],
                     [CCCallFunc actionWithTarget:self selector:@selector(initJetPack)],
                     [CCCallFunc actionWithTarget:self selector:@selector(takeOffDidBegin)],
                     [CCMoveTo actionWithDuration:0.35 position:ccp(_sprite.position.x, _sprite.position.y + screenSize.height/6)],

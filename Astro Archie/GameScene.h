@@ -37,5 +37,6 @@
 -(void)gameResumed;
 -(void)increaseAltitude;
 -(void)startScoreTimer;
+-(void)addController;
 
 @end
